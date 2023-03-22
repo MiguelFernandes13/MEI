@@ -1,4 +1,0 @@
-DEBUG:root:received {"id":0,"src":"c0","dest":"n0","body":{"type":"init","node_id":"n0","node_ids":["n0","n1","n2"],"msg_id":1}}
-INFO:root:node n0 initialized
-DEBUG:root:sending {"dest": "c0", "src": "n0", "body": {"msg_id": 1, "in_reply_to": 1, "type": "init_ok"}}
-DEBUG:root:received {"id":7,"src":"c7","dest":"n0","body":{"type":"cbcast","message":2,"msg_id":1}}

@@ -1,2 +1,0 @@
-{:index 0, :time 16050400, :type :invoke, :process 0, :f :lock, :value nil}
-{:index 1, :time 5026702700, :type :info, :process 0, :f :lock, :value nil, :error :net-timeout}

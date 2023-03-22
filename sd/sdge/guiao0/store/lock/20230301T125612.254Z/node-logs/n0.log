@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/home/miguel/uni/4ano/sd/sdge/guiao0/lock-lamport.py", line 31, in <module>
-    if acquired and acquired.src == msg.body.client:
-AttributeError: 'types.SimpleNamespace' object has no attribute 'client'

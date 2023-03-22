@@ -1,6 +1,0 @@
-2	:invoke	:cbcast	1
-0	:invoke	:cbcast	2
-1	:invoke	:cbcast	3
-2	:info	:cbcast	1	:net-timeout
-0	:info	:cbcast	2	:net-timeout
-1	:info	:cbcast	3	:net-timeout

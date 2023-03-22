@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/home/miguel/uni/4ano/sd/sdge/guiao0/lock-lamport.py", line 46, in <module>
-    send(node_id, node, type='release_lock', timestamp=timestamps[node_id], request_timestamp=request[1], client=request[0].src)
-AttributeError: 'str' object has no attribute 'src'

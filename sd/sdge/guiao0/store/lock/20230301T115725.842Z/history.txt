@@ -1,2 +1,0 @@
-0	:invoke	:lock	nil
-0	:info	:lock	nil	:net-timeout

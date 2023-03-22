@@ -1,6 +1,0 @@
-{:f :cbcast, :value 1, :time 9813700, :process 2, :type :invoke, :index 0}
-{:f :cbcast, :value 2, :time 239170900, :process 0, :type :invoke, :index 1}
-{:f :cbcast, :value 3, :time 633936000, :process 1, :type :invoke, :index 2}
-{:f :cbcast, :value 1, :time 5014788500, :process 2, :type :info, :error :net-timeout, :index 3}
-{:f :cbcast, :value 2, :time 5240557700, :process 0, :type :info, :error :net-timeout, :index 4}
-{:f :cbcast, :value 3, :time 5635488800, :process 1, :type :info, :error :net-timeout, :index 5}

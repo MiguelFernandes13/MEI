@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/home/miguel/uni/4ano/sd/sdge/guiao0/lock-lamport.py", line 39, in <module>
-    reply(acquired, type='lock_ok')
-  File "/home/miguel/uni/4ano/sd/sdge/guiao0/ms.py", line 18, in reply
-    send(request.dest, request.src, in_reply_to=request.body.msg_id, **body)
-AttributeError: 'str' object has no attribute 'dest'
