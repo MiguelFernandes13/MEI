@@ -1,0 +1,24 @@
+1. Existe uma date race no variavel w
+O valor final de w em teoria é 110, porem este pode ser diferente
+devido aos data races
+1.1) Já nao existe daterace, a variavel é privada a cada
+thread. A variavel é iniciada com um valor aleatório nas 2 threads.
+O valor de w não é alterado.
+
+1.2) w é inicializado a 10 e não é alterado globalmente
+
+1.3) w é iniciada a um valor aleatório e toma o valor da última thread, logo fica 
+o valor + 50.
+
+1.4) w é inicializa localmente a 0 e termina a 110
+
+2) 
+a) O produto varia devido à data race na variavel dot
+b) Com o aumento de numero de threads aumenta tambem a probabilidade 
+de existir data races.
+ 
+reduction é bom para escalabilidade uma vez que feito em paralelo,
+as somas passas para log_2.
+No reduce só existe variação da ordem das somas na soma das somas,
+ao contrario do critical que a ordem pode trocar em todas as somas.
+Dessa forma o resultado varia muito menos no reduce do que no critical.
