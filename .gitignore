@@ -4,3 +4,5 @@
 1sem/DAA/Untitled.ipynb
 1sem/DAA/data_prep/
 1sem/DAA/.ipynb_checkpoints/*
+*.class
+*.jar
