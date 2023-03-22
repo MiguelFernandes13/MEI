@@ -6,3 +6,4 @@
 1sem/DAA/.ipynb_checkpoints/*
 *.class
 *.jar
+**/.ipynb_checkpoints/
