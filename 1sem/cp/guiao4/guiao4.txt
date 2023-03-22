@@ -1,0 +1,17 @@
+1) a) 3 vezes -> 2 vezes pelo C1 e uma pela C2
+
+b) A partir do perfreport.txt retiramos o endereço 
+0x00007f194912fa90 que é o com maior percentagem.
+Se procurarmos este endereço no MULT.s verificamos
+que corresponde à instrução: 
+mov    0x10(%rdi,%rcx,4),%eax  ;*aaload
+                    ; - MULT::mmult@48 (line 29)
+
+
+c) Faz unrool 2 vezes
+
+d) Existe uma carga de 6% devido à compilação
+dinâmica. 
+
+e) Existe uma thread a fazer a coleção do lixo (VMThread)
+com um custo de aproximadamente 1.5%

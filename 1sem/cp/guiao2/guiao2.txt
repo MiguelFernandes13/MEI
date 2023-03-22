@@ -1,0 +1,26 @@
+1)
+a) O acesso à memória feito pela matriz A e C benefeciam da 
+localidade especial, uma vez que estas são percorridas linha à linha
+ocupando posições consecutivas na memória. O mesmo não se verifica 
+ao percorrer a matriz B, sendo que esta é percorrida coluna à coluna.
+
+
+b)
+Sabendo que o tamanho dos blocos é 64 bytes e o tamanho de um double
+é de 8 Bytes, cada bloco contem 8 doubles. Dessa forma a cada 8 loops
+ocorre um miss na matriz A-
+
+A ->  N * N * N/8
+B -> N * N *  N (Assumindo uma matriz sufecientemente grande)
+
+c) 
+for i
+    for j
+        b'[i][j] = b[j][i]
+
+Mesmo trocando a ordem dos ciclos, acabamos sempre por não ter localidade 
+espacial na leitura ou na escrita.
+(N^2) / 8
+
+2)
+

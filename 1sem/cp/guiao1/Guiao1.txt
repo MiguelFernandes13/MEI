@@ -1,0 +1,33 @@
+Exercicio 1
+a) A multiplicação de matrizes tem um tempo de
+execução de O(N^3). Ao aumentar o tamanho da matriz
+aumentamos o número de instruções(#I) em 8 vezes, isto é,
+2^3.
+
+b) Em O0 são executadas 45 instruções enquanto que 
+com O2 são apenas 8
+
+c)
+128 | 0.0059 | 
+256 | 0.0392 |
+512 | | | # I | 0.5
+
+512 | | | #I / 5 | 1.2
+
+d)
+
+e) 
+
+Exercicio 2
+a) 
+
+c)
+L12:
+    movsd (%rdx), %xmm0 ;move SD from memory to register %xmm0
+    mulsd (%rax), %xmm0 ;move SD from memory and mul with %xmm0 --Write after read
+    addq $4096, %rax ; add 4096 to %rax
+    addq $8, %rdx
+    addsd %xmm0, %xmm1
+    movsd %xmm1, (%rcx)
+    cmpq %rax, %rsi
+    jne .L12

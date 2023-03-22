@@ -1,0 +1,36 @@
+2) a) Uma das razões é o facto que a leitura da matriz
+B é feita por colunas. A outra razão deve-se ao facto de
+o calculo de matriz C é feito elemento a elemento, assim 
+sendo a escrita também não pode ser vetorizada.
+
+b) i k j
+-> Melhor para vetorização uma vez que não tem problema de A ser um 
+valor constante, sendo que é so de leitura
+C -> horizontal
+A -> constante 
+B -> horizontal
+
+k i j também permite a vetorização, A é constante
+
+c)
+Version | Time | CPI | #I Estimated | #I (inst_retired.any)  
+ikj     | 0.17 | 0.4 | 7 x N^3      |
+
+
+3)
+a) 
+256 / 8 = 32 bytes / 8 = 4 flops double 
+Temos 2 unidades de processamento, logo
+2.5 GHz x 4 flops double x 2 = 20 GHFlop/s 
+
+Sem vetorização
+2.5 GHz x  2 = 5 GHFlop/s 
+
+b)
+1 flop -> 1 byte 
+20 GFlop -> 20 GByte
+
+C)
+A * B 
+A é constante e B -> 2 x 8 bytes 
+2 / (2 x 8) = 1 / 8 = 0.125
