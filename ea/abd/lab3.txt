@@ -43,3 +43,7 @@ select p.id, count(i.id) from product p join invoice i on
  Normal
   Planning Time: 0.179 ms
   Execution Time: 40.864 ms
+
+A melhor maneira de otimizar a segunda query é com uma vista 
+materializada, uma vez que, o resultado desta query não varia 
+muito ao longo do tempo.

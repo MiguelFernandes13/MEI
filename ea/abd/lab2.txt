@@ -1,0 +1,82 @@
+Sem remover qualquer plano de execução o resultado do benchmark é 
+throughput (txn/s) = 342.9
+response time (s) = 0.0029132890055409743
+
+Para a query
+select p.id from product p join invoice i on i.productid = p.id where i.clientid = 1;
+o plano de execução é o seguinte:
+
+Hash Join  (cost=316.04..739.08 rows=3 width=4) (actual time=1.603..2.172 rows=3 loops=1)
+   Hash Cond: (i.productid = p.id)
+   ->  Seq Scan on invoice i  (cost=0.00..423.00 rows=3 width=4) (actual time=0.030..0.591 rows=3 loop
+s=1)
+         Filter: (clientid = 1)
+         Rows Removed by Filter: 2717
+   ->  Hash  (cost=303.24..303.24 rows=1024 width=4) (actual time=1.537..1.539 rows=1024 loops=1)
+         Buckets: 1024  Batches: 1  Memory Usage: 44kB
+         ->  Seq Scan on product p  (cost=0.00..303.24 rows=1024 width=4) (actual time=0.186..0.892 ro
+ws=1024 loops=1)
+ Planning Time: 0.151 ms
+ Execution Time: 2.189 ms
+
+Removendo o plano hash join o resultado do benchmark é
+(set enable_hashjoin = off;)
+throughput (txn/s) = 445.9
+response time (s) = 0.0022404458623009643
+
+o novo plano de execução:
+ Nested Loop  (cost=0.00..772.33 rows=3 width=4) (actual time=3.012..5.919 rows=3 loops=1)
+   Join Filter: (p.id = i.productid)
+   Rows Removed by Join Filter: 3069
+   ->  Seq Scan on product p  (cost=0.00..303.24 rows=1024 width=4) (actual time=0.085..0.667 rows=102
+4 loops=1)
+   ->  Materialize  (cost=0.00..423.01 rows=3 width=4) (actual time=0.001..0.002 rows=3 loops=1024)
+         ->  Seq Scan on invoice i  (cost=0.00..423.00 rows=3 width=4) (actual time=0.016..0.481 rows=
+3 loops=1)
+               Filter: (clientid = 1)
+               Rows Removed by Filter: 2717
+ Planning Time: 0.083 ms
+ Execution Time: 5.941 ms
+
+Removendo o plano de execução nested loop o resultado do benchmark é
+(set enable_nestloop = off;)
+throughput (txn/s) = 448.1
+response time (s) = 0.0022301416201740685
+
+o novo plano de execução:
+  Merge Join  (cost=1423.96..1429.13 rows=3 width=4) (actual time=2.174..2.179 rows=0 loops=1)
+   Merge Cond: (p.id = i.productid)
+   ->  Sort  (cost=354.44..357.00 rows=1024 width=4) (actual time=1.296..1.298 rows=1 loops=1)
+         Sort Key: p.id
+         Sort Method: quicksort  Memory: 49kB
+         ->  Seq Scan on product p  (cost=0.00..303.24 rows=1024 width=4) (actual time=0.068..0.772 ro
+ws=1024 loops=1)
+   ->  Sort  (cost=1069.52..1069.53 rows=3 width=4) (actual time=0.875..0.877 rows=0 loops=1)
+         Sort Key: i.productid
+         Sort Method: quicksort  Memory: 25kB
+         ->  Seq Scan on invoice i  (cost=0.00..1069.50 rows=3 width=4) (actual time=0.872..0.872 rows
+=0 loops=1)
+               Filter: (clientid = 1)
+               Rows Removed by Filter: 3560
+ Planning Time: 0.139 ms
+ Execution Time: 2.198 ms
+
+Removendo o sort 
+
+Nested Loop  (cost=10000000000.00..10000001418.83 rows=3 width=4) (actual time=47.744..47.748 rows=0
+loops=1)
+   Join Filter: (p.id = i.productid)
+   ->  Seq Scan on product p  (cost=0.00..303.24 rows=1024 width=4) (actual time=0.133..0.731 rows=102
+4 loops=1)
+   ->  Materialize  (cost=0.00..1069.52 rows=3 width=4) (actual time=0.045..0.045 rows=0 loops=1024)
+         ->  Seq Scan on invoice i  (cost=0.00..1069.50 rows=3 width=4) (actual time=45.489..45.490 ro
+ws=0 loops=1)
+               Filter: (clientid = 1)
+               Rows Removed by Filter: 3560
+ Planning Time: 0.096 ms
+ JIT:
+   Functions: 9
+   Options: Inlining true, Optimization true, Expressions true, Deforming true
+   Timing: Generation 0.752 ms, Inlining 1.522 ms, Optimization 27.656 ms, Emission 15.526 ms, Total 4
+5.456 ms
+ Execution Time: 48.580 ms

@@ -1,0 +1,68 @@
+Correndo o script clients.sh obtemos o seguinte resultado,
+isto para os valores default de shared_buffer e work_mem(128MB, 4MB)
+Verifica-se que de 16 para 20 clientes a base de dados 
+começa a ficar sobrecarregada, pois o throughput começa a
+diminuir.
+
+_________________________________________
+Running 1 clients
+throughput (txn/s) = 389.4
+response time (s) = 0.0025637386492039036
+abort rate (%) = 0.0
+_________________________________________
+Running 2 clients
+throughput (txn/s) = 749.5
+response time (s) = 0.0026654982921947967
+abort rate (%) = 0.0
+_________________________________________
+Running 4 clients
+throughput (txn/s) = 1193.6
+response time (s) = 0.003347002471514745
+abort rate (%) = 0.0
+_________________________________________
+Running 8 clients
+throughput (txn/s) = 1498.6
+response time (s) = 0.005332701361270519
+abort rate (%) = 0.0
+_________________________________________
+Running 12 clients
+throughput (txn/s) = 1554.6
+response time (s) = 0.007712533796474978
+abort rate (%) = 0.0
+_________________________________________
+Running 16 clients
+throughput (txn/s) = 1537.1
+response time (s) = 0.010401383117559039
+abort rate (%) = 0.0
+_________________________________________
+Running 20 clients
+throughput (txn/s) = 1321.1
+response time (s) = 0.01513533062599349
+abort rate (%) = 0.0
+
+Agora mantendo os 20 clientes, vamos variar o valor 
+de shared_buffer e work_mem, para ver como isso afeta
+
+shared_buffer = 1GB
+
+throughput (txn/s) = 1049.4
+response time (s) = 0.019047660587002097
+abort rate (%) = 0.0
+
+shared_buffer = 16MB
+
+throughput (txn/s) = 967.3
+response time (s) = 0.02063044363692753
+abort rate (%) = 0.0
+
+Shared_buffer = 128MB e work_mem = 64MB
+
+throughput (txn/s) = 1137.9
+response time (s) = 0.01754851836716759
+abort rate (%) = 0.0
+
+Shared_buffer = 1GB e work_mem = 64MB
+
+throughput (txn/s) = 1063.9
+response time (s) = 0.018771793270044176
+abort rate (%) = 0.0
