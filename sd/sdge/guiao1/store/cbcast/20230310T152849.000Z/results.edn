@@ -1,0 +1,33 @@
+{:perf {:latency-graph {:valid? true},
+        :rate-graph {:valid? true},
+        :valid? true},
+ :timeline {:valid? true},
+ :exceptions {:valid? true},
+ :stats {:valid? true,
+         :count 28,
+         :ok-count 28,
+         :fail-count 0,
+         :info-count 0,
+         :by-f {:cbcast {:valid? true,
+                         :count 28,
+                         :ok-count 28,
+                         :fail-count 0,
+                         :info-count 0}}},
+ :net {:all {:send-count 118,
+             :recv-count 116,
+             :msg-count 118,
+             :msgs-per-op 4.214286},
+       :clients {:send-count 62, :recv-count 62, :msg-count 62},
+       :servers {:send-count 56,
+                 :recv-count 54,
+                 :msg-count 56,
+                 :msgs-per-op 2.0},
+       :valid? true},
+ :workload {:valid? false,
+            :errors ["missing dependencies [8] when delivering message 9 to process 1"
+                     "missing dependencies [8] when delivering message 9 to process 2"
+                     "missing dependencies [5] when delivering message 8 to process 2"
+                     "missing dependencies [12] when delivering message 15 to process 2"
+                     "missing dependencies [18] when delivering message 20 to process 1"
+                     "missing dependencies [16] when delivering message 18 to process 0"]},
+ :valid? false}

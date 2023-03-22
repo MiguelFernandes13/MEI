@@ -1,0 +1,45 @@
+Comando 
+
+select p.id from product p join invoice i on i.productid = p.id where i.clientid = 1;
+
+normal ( Seq Scan on invoice i)
+    Planning Time: 0.131 ms
+    Execution Time: 5.909 ms
+Hash index on clientid in invoice
+    Planning Time: 0.186 ms
+    Execution Time: 1.738 ms
+BTree index on clientid in invoice
+    Planning Time: 0.818 ms
+    Execution Time: 1.482 ms
+
+Tendo os 2 indices criados anterior e adicionando (utilizou o hash de invoice)
+    Planning Time: 0.179 ms
+    Execution Time: 1.482 ms
+
+
+create index on product using hash(id);
+    Planning Time: 0.259 ms
+    Execution Time: 0.274 ms
+
+create index on product using btree(id); (removendo o hash)
+    Planning Time: 0.221 ms
+    Execution Time: 0.177 ms
+
+Fazendo a query com os 4 indices escolheu:
+    Utilizou o hash no invoice e o btree no product
+
+NOTA:
+uma coluna com a e b
+para utilizar um indice composto considerando que
+a tem poucos valores unicos e b tem muitos valores unicos
+a melhor alterntica é criar um indice composto (b,a)
+de maneira a retornar uma menor lista de candidatos
+
+
+
+select p.id, count(i.id) from product p join invoice i on
+ i.productid = p.id group by p.id order by count(i.id) desc limit 10;
+
+ Normal
+  Planning Time: 0.179 ms
+  Execution Time: 40.864 ms

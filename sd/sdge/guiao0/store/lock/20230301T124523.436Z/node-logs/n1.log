@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/miguel/uni/4ano/sd/sdge/guiao0/lock-lamport.py", line 30, in <module>
+    if acquired and acquired.src == msg.src:
+AttributeError: 'tuple' object has no attribute 'src'

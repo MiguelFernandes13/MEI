@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/miguel/uni/4ano/sd/sdge/guiao0/lock-lamport.py", line 54, in <module>
+    if timestamps[msg.src] < msg.body.timestamp:
+KeyError: 'c2'

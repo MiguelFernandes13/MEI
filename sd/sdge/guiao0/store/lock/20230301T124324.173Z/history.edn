@@ -1,0 +1,26 @@
+{:index 0, :time 13290300, :type :invoke, :process 2, :f :lock, :value nil}
+{:index 1, :time 28642300, :type :ok, :process 2, :f :lock, :value nil}
+{:index 2, :time 109809500, :type :invoke, :process 1, :f :lock, :value nil}
+{:index 3, :time 168412500, :type :invoke, :process 2, :f :unlock, :value nil}
+{:index 4, :time 170700800, :type :ok, :process 2, :f :unlock, :value nil}
+{:index 5, :time 171517300, :type :ok, :process 1, :f :lock, :value nil}
+{:index 6, :time 245408600, :type :invoke, :process 2, :f :lock, :value nil}
+{:index 7, :time 250022100, :type :invoke, :process 3, :f :lock, :value nil}
+{:index 8, :time 433389300, :type :invoke, :process 1, :f :unlock, :value nil}
+{:index 9, :time 436185700, :type :ok, :process 1, :f :unlock, :value nil}
+{:index 10, :time 436979900, :type :ok, :process 2, :f :lock, :value nil}
+{:index 11, :time 821432100, :type :invoke, :process 1, :f :lock, :value nil}
+{:index 12, :time 1170798300, :type :invoke, :process 0, :f :lock, :value nil}
+{:index 13, :time 1385693300, :type :invoke, :process 2, :f :unlock, :value nil}
+{:index 14, :time 1388521300, :type :ok, :process 2, :f :unlock, :value nil}
+{:index 15, :time 1388874600, :type :ok, :process 3, :f :lock, :value nil}
+{:index 16, :time 1599705800, :type :invoke, :process 2, :f :lock, :value nil}
+{:index 17, :time 1731605000, :type :invoke, :process 3, :f :unlock, :value nil}
+{:index 18, :time 1733719500, :type :ok, :process 1, :f :lock, :value nil}
+{:index 19, :time 1733832000, :type :ok, :process 3, :f :unlock, :value nil}
+{:index 20, :time 2097646400, :type :invoke, :process 3, :f :lock, :value nil}
+{:index 21, :time 2393197100, :type :invoke, :process 1, :f :unlock, :value nil}
+{:index 22, :time 6173210000, :type :info, :process 0, :f :lock, :value nil, :error :net-timeout}
+{:index 23, :time 6600669500, :type :info, :process 2, :f :lock, :value nil, :error :net-timeout}
+{:index 24, :time 7098510700, :type :info, :process 3, :f :lock, :value nil, :error :net-timeout}
+{:index 25, :time 7394381200, :type :info, :process 1, :f :unlock, :value nil, :error :net-timeout}

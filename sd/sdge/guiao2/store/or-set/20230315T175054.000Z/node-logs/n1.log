@@ -1,0 +1,8 @@
+DEBUG:root:received {"id":0,"src":"c0","dest":"n1","body":{"type":"init","node_id":"n1","node_ids":["n0","n1","n2"],"msg_id":1}}
+INFO:root:node n1 initialized
+DEBUG:root:sending {"dest": "c0", "src": "n1", "body": {"msg_id": 1, "in_reply_to": 1, "type": "init_ok"}}
+DEBUG:root:received {"id":8,"src":"n2","dest":"n1","body":{"msg_id":3,"type":"fwd_add","element":0,"id":["n2",1],"r":[],"vv":{"n0":0,"n1":0,"n2":1}}}
+Traceback (most recent call last):
+  File "/home/miguel/uni/4ano/sd/sdge/guiao2/or-set.py", line 81, in <module>
+    m[msg.body.element].append(msg.body.m)
+AttributeError: 'types.SimpleNamespace' object has no attribute 'm'

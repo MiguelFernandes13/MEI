@@ -1,0 +1,18 @@
+DEBUG:root:received {"id":2,"src":"c2","dest":"n0","body":{"type":"init","node_id":"n0","node_ids":["n0","n1","n2"],"msg_id":1}}
+INFO:root:node n0 initialized
+DEBUG:root:sending {"dest": "c2", "src": "n0", "body": {"msg_id": 1, "in_reply_to": 1, "type": "init_ok"}}
+DEBUG:root:received {"id":8,"src":"c7","dest":"n0","body":{"type":"read","msg_id":1}}
+Traceback (most recent call last):
+  File "/home/miguel/uni/4ano/sd/sdge/guiao2/or-set.py", line 73, in <module>
+    reply(msg, type='read_ok', values = m.keys())
+  File "/home/miguel/uni/4ano/sd/sdge/guiao2/ms.py", line 18, in reply
+    send(request.dest, request.src, in_reply_to=request.body.msg_id, **body)
+  File "/home/miguel/uni/4ano/sd/sdge/guiao2/ms.py", line 13, in send
+    data = dumps(sn(dest=dest, src=src, body=sn(msg_id=(msg_id:=msg_id+1), **body)), default=vars)
+  File "/usr/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+TypeError: vars() argument must have __dict__ attribute

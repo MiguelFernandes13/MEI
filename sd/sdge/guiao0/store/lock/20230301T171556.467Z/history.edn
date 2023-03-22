@@ -1,0 +1,8 @@
+{:index 0, :time 13014000, :type :invoke, :process 2, :f :lock, :value nil}
+{:index 1, :time 311558600, :type :invoke, :process 3, :f :lock, :value nil}
+{:index 2, :time 608183800, :type :invoke, :process 1, :f :lock, :value nil}
+{:index 3, :time 966349700, :type :invoke, :process 0, :f :lock, :value nil}
+{:index 4, :time 5020830700, :type :info, :process 2, :f :lock, :value nil, :error :net-timeout}
+{:index 5, :time 5313037200, :type :info, :process 3, :f :lock, :value nil, :error :net-timeout}
+{:index 6, :time 5609905800, :type :info, :process 1, :f :lock, :value nil, :error :net-timeout}
+{:index 7, :time 5967498400, :type :info, :process 0, :f :lock, :value nil, :error :net-timeout}

@@ -1,0 +1,52 @@
+{:f :cbcast, :value 1, :time 10841400, :process 0, :type :invoke, :index 0}
+{:f :cbcast, :value [], :time 18220300, :process 0, :type :ok, :index 1}
+{:f :cbcast, :value 2, :time 28080800, :process 2, :type :invoke, :index 2}
+{:f :cbcast, :value [{"id" 9, "src" "n0", "dest" "n2", "body" {"msg_id" 4, "type" "fwd_msg", "vv" {"n0" 1, "n1" 0, "n2" 0}, "message" 1}} 1], :time 31572400, :process 2, :type :ok, :index 3}
+{:f :cbcast, :value 3, :time 395244000, :process 0, :type :invoke, :index 4}
+{:f :cbcast, :value [{"id" 12, "src" "n2", "dest" "n0", "body" {"msg_id" 3, "type" "fwd_msg", "vv" {"n0" 1, "n1" 0, "n2" 1}, "message" 2}} 2], :time 398626700, :process 0, :type :ok, :index 5}
+{:f :cbcast, :value 4, :time 765609600, :process 1, :type :invoke, :index 6}
+{:f :cbcast, :value [{"id" 8, "src" "n0", "dest" "n1", "body" {"msg_id" 3, "type" "fwd_msg", "vv" {"n0" 1, "n1" 0, "n2" 0}, "message" 1}} 1 {"id" 13, "src" "n2", "dest" "n1", "body" {"msg_id" 4, "type" "fwd_msg", "vv" {"n0" 1, "n1" 0, "n2" 1}, "message" 2}} 2 {"id" 16, "src" "n0", "dest" "n1", "body" {"msg_id" 6, "type" "fwd_msg", "vv" {"n0" 2, "n1" 0, "n2" 1}, "message" 3}} 3], :time 769947300, :process 1, :type :ok, :index 7}
+{:f :cbcast, :value 5, :time 1009337000, :process 2, :type :invoke, :index 8}
+{:f :cbcast, :value [{"id" 17, "src" "n0", "dest" "n2", "body" {"msg_id" 7, "type" "fwd_msg", "vv" {"n0" 2, "n1" 0, "n2" 1}, "message" 3}} 3 {"id" 21, "src" "n1", "dest" "n2", "body" {"msg_id" 4, "type" "fwd_msg", "vv" {"n0" 2, "n1" 1, "n2" 1}, "message" 4}} 4], :time 1012356400, :process 2, :type :ok, :index 9}
+{:f :cbcast, :value 6, :time 1271240100, :process 1, :type :invoke, :index 10}
+{:f :cbcast, :value [{"id" 25, "src" "n2", "dest" "n1", "body" {"msg_id" 7, "type" "fwd_msg", "vv" {"n0" 2, "n1" 1, "n2" 2}, "message" 5}} 5], :time 1274114400, :process 1, :type :ok, :index 11}
+{:f :cbcast, :value 7, :time 1370397200, :process 2, :type :invoke, :index 12}
+{:f :cbcast, :value [{"id" 29, "src" "n1", "dest" "n2", "body" {"msg_id" 7, "type" "fwd_msg", "vv" {"n0" 2, "n1" 2, "n2" 2}, "message" 6}} 6], :time 1373302900, :process 2, :type :ok, :index 13}
+{:f :cbcast, :value 8, :time 1651701400, :process 0, :type :invoke, :index 14}
+{:f :cbcast, :value [{"id" 20, "src" "n1", "dest" "n0", "body" {"msg_id" 3, "type" "fwd_msg", "vv" {"n0" 2, "n1" 1, "n2" 1}, "message" 4}} 4 {"id" 24, "src" "n2", "dest" "n0", "body" {"msg_id" 6, "type" "fwd_msg", "vv" {"n0" 2, "n1" 1, "n2" 2}, "message" 5}} 5 {"id" 28, "src" "n1", "dest" "n0", "body" {"msg_id" 6, "type" "fwd_msg", "vv" {"n0" 2, "n1" 2, "n2" 2}, "message" 6}} 6 {"id" 32, "src" "n2", "dest" "n0", "body" {"msg_id" 9, "type" "fwd_msg", "vv" {"n0" 2, "n1" 2, "n2" 3}, "message" 7}} 7], :time 1655186900, :process 0, :type :ok, :index 15}
+{:f :cbcast, :value 9, :time 1992603800, :process 2, :type :invoke, :index 16}
+{:f :cbcast, :value [{"id" 37, "src" "n0", "dest" "n2", "body" {"msg_id" 10, "type" "fwd_msg", "vv" {"n0" 3, "n1" 2, "n2" 3}, "message" 8}} 8], :time 1995447200, :process 2, :type :ok, :index 17}
+{:f :cbcast, :value 10, :time 2173273900, :process 2, :type :invoke, :index 18}
+{:f :cbcast, :value [], :time 2175495700, :process 2, :type :ok, :index 19}
+{:f :cbcast, :value 11, :time 2202130100, :process 1, :type :invoke, :index 20}
+{:f :cbcast, :value [{"id" 33, "src" "n2", "dest" "n1", "body" {"msg_id" 10, "type" "fwd_msg", "vv" {"n0" 2, "n1" 2, "n2" 3}, "message" 7}} 7 {"id" 36, "src" "n0", "dest" "n1", "body" {"msg_id" 9, "type" "fwd_msg", "vv" {"n0" 3, "n1" 2, "n2" 3}, "message" 8}} 8 {"id" 41, "src" "n2", "dest" "n1", "body" {"msg_id" 13, "type" "fwd_msg", "vv" {"n0" 3, "n1" 2, "n2" 4}, "message" 9}} 9 {"id" 45, "src" "n2", "dest" "n1", "body" {"msg_id" 16, "type" "fwd_msg", "vv" {"n0" 3, "n1" 2, "n2" 5}, "message" 10}} 10], :time 2205192800, :process 1, :type :ok, :index 21}
+{:f :cbcast, :value 12, :time 2402595100, :process 0, :type :invoke, :index 22}
+{:f :cbcast, :value [{"id" 40, "src" "n2", "dest" "n0", "body" {"msg_id" 12, "type" "fwd_msg", "vv" {"n0" 3, "n1" 2, "n2" 4}, "message" 9}} 9 {"id" 44, "src" "n2", "dest" "n0", "body" {"msg_id" 15, "type" "fwd_msg", "vv" {"n0" 3, "n1" 2, "n2" 5}, "message" 10}} 10 {"id" 48, "src" "n1", "dest" "n0", "body" {"msg_id" 9, "type" "fwd_msg", "vv" {"n0" 3, "n1" 3, "n2" 5}, "message" 11}} 11], :time 2405153800, :process 0, :type :ok, :index 23}
+{:f :cbcast, :value 13, :time 2425892200, :process 1, :type :invoke, :index 24}
+{:f :cbcast, :value [{"id" 52, "src" "n0", "dest" "n1", "body" {"msg_id" 12, "type" "fwd_msg", "vv" {"n0" 4, "n1" 3, "n2" 5}, "message" 12}} 12], :time 2428273700, :process 1, :type :ok, :index 25}
+{:f :cbcast, :value 14, :time 2430709800, :process 2, :type :invoke, :index 26}
+{:f :cbcast, :value [{"id" 49, "src" "n1", "dest" "n2", "body" {"msg_id" 10, "type" "fwd_msg", "vv" {"n0" 3, "n1" 3, "n2" 5}, "message" 11}} 11 {"id" 53, "src" "n0", "dest" "n2", "body" {"msg_id" 13, "type" "fwd_msg", "vv" {"n0" 4, "n1" 3, "n2" 5}, "message" 12}} 12 {"id" 57, "src" "n1", "dest" "n2", "body" {"msg_id" 13, "type" "fwd_msg", "vv" {"n0" 4, "n1" 4, "n2" 5}, "message" 13}} 13], :time 2434677300, :process 2, :type :ok, :index 27}
+{:f :cbcast, :value 15, :time 2797125500, :process 1, :type :invoke, :index 28}
+{:f :cbcast, :value [{"id" 61, "src" "n2", "dest" "n1", "body" {"msg_id" 19, "type" "fwd_msg", "vv" {"n0" 4, "n1" 4, "n2" 6}, "message" 14}} 14], :time 2799837200, :process 1, :type :ok, :index 29}
+{:f :cbcast, :value 16, :time 3086362200, :process 0, :type :invoke, :index 30}
+{:f :cbcast, :value [{"id" 56, "src" "n1", "dest" "n0", "body" {"msg_id" 12, "type" "fwd_msg", "vv" {"n0" 4, "n1" 4, "n2" 5}, "message" 13}} 13 {"id" 60, "src" "n2", "dest" "n0", "body" {"msg_id" 18, "type" "fwd_msg", "vv" {"n0" 4, "n1" 4, "n2" 6}, "message" 14}} 14 {"id" 64, "src" "n1", "dest" "n0", "body" {"msg_id" 15, "type" "fwd_msg", "vv" {"n0" 4, "n1" 5, "n2" 6}, "message" 15}} 15], :time 3089176800, :process 0, :type :ok, :index 31}
+{:f :cbcast, :value 17, :time 3138628600, :process 0, :type :invoke, :index 32}
+{:f :cbcast, :value [], :time 3140930200, :process 0, :type :ok, :index 33}
+{:f :cbcast, :value 18, :time 3366020200, :process 0, :type :invoke, :index 34}
+{:f :cbcast, :value [], :time 3368402800, :process 0, :type :ok, :index 35}
+{:f :cbcast, :value 19, :time 3440967800, :process 2, :type :invoke, :index 36}
+{:f :cbcast, :value [{"id" 65, "src" "n1", "dest" "n2", "body" {"msg_id" 16, "type" "fwd_msg", "vv" {"n0" 4, "n1" 5, "n2" 6}, "message" 15}} 15 {"id" 69, "src" "n0", "dest" "n2", "body" {"msg_id" 16, "type" "fwd_msg", "vv" {"n0" 5, "n1" 5, "n2" 6}, "message" 16}} 16 {"id" 73, "src" "n0", "dest" "n2", "body" {"msg_id" 19, "type" "fwd_msg", "vv" {"n0" 6, "n1" 5, "n2" 6}, "message" 17}} 17 {"id" 77, "src" "n0", "dest" "n2", "body" {"msg_id" 22, "type" "fwd_msg", "vv" {"n0" 7, "n1" 5, "n2" 6}, "message" 18}} 18], :time 3443483600, :process 2, :type :ok, :index 37}
+{:f :cbcast, :value 20, :time 3577727400, :process 1, :type :invoke, :index 38}
+{:f :cbcast, :value [{"id" 68, "src" "n0", "dest" "n1", "body" {"msg_id" 15, "type" "fwd_msg", "vv" {"n0" 5, "n1" 5, "n2" 6}, "message" 16}} 16 {"id" 72, "src" "n0", "dest" "n1", "body" {"msg_id" 18, "type" "fwd_msg", "vv" {"n0" 6, "n1" 5, "n2" 6}, "message" 17}} 17 {"id" 76, "src" "n0", "dest" "n1", "body" {"msg_id" 21, "type" "fwd_msg", "vv" {"n0" 7, "n1" 5, "n2" 6}, "message" 18}} 18 {"id" 81, "src" "n2", "dest" "n1", "body" {"msg_id" 22, "type" "fwd_msg", "vv" {"n0" 7, "n1" 5, "n2" 7}, "message" 19}} 19], :time 3579939300, :process 1, :type :ok, :index 39}
+{:f :cbcast, :value 21, :time 3686851400, :process 2, :type :invoke, :index 40}
+{:f :cbcast, :value [{"id" 85, "src" "n1", "dest" "n2", "body" {"msg_id" 19, "type" "fwd_msg", "vv" {"n0" 7, "n1" 6, "n2" 7}, "message" 20}} 20], :time 3689161800, :process 2, :type :ok, :index 41}
+{:f :cbcast, :value 22, :time 4079427000, :process 1, :type :invoke, :index 42}
+{:f :cbcast, :value [{"id" 89, "src" "n2", "dest" "n1", "body" {"msg_id" 25, "type" "fwd_msg", "vv" {"n0" 7, "n1" 6, "n2" 8}, "message" 21}} 21], :time 4081617000, :process 1, :type :ok, :index 43}
+{:f :cbcast, :value 23, :time 4281988800, :process 1, :type :invoke, :index 44}
+{:f :cbcast, :value [], :time 4284343800, :process 1, :type :ok, :index 45}
+{:f :cbcast, :value 24, :time 4425547200, :process 0, :type :invoke, :index 46}
+{:f :cbcast, :value [{"id" 80, "src" "n2", "dest" "n0", "body" {"msg_id" 21, "type" "fwd_msg", "vv" {"n0" 7, "n1" 5, "n2" 7}, "message" 19}} 19 {"id" 84, "src" "n1", "dest" "n0", "body" {"msg_id" 18, "type" "fwd_msg", "vv" {"n0" 7, "n1" 6, "n2" 7}, "message" 20}} 20 {"id" 88, "src" "n2", "dest" "n0", "body" {"msg_id" 24, "type" "fwd_msg", "vv" {"n0" 7, "n1" 6, "n2" 8}, "message" 21}} 21 {"id" 92, "src" "n1", "dest" "n0", "body" {"msg_id" 21, "type" "fwd_msg", "vv" {"n0" 7, "n1" 7, "n2" 8}, "message" 22}} 22 {"id" 96, "src" "n1", "dest" "n0", "body" {"msg_id" 24, "type" "fwd_msg", "vv" {"n0" 7, "n1" 8, "n2" 8}, "message" 23}} 23], :time 4428282000, :process 0, :type :ok, :index 47}
+{:f :cbcast, :value 25, :time 4737892200, :process 1, :type :invoke, :index 48}
+{:f :cbcast, :value [{"id" 100, "src" "n0", "dest" "n1", "body" {"msg_id" 24, "type" "fwd_msg", "vv" {"n0" 8, "n1" 8, "n2" 8}, "message" 24}} 24], :time 4740090500, :process 1, :type :ok, :index 49}
+{:f :cbcast, :value 26, :time 4873306500, :process 2, :type :invoke, :index 50}
+{:f :cbcast, :value [{"id" 93, "src" "n1", "dest" "n2", "body" {"msg_id" 22, "type" "fwd_msg", "vv" {"n0" 7, "n1" 7, "n2" 8}, "message" 22}} 22 {"id" 97, "src" "n1", "dest" "n2", "body" {"msg_id" 25, "type" "fwd_msg", "vv" {"n0" 7, "n1" 8, "n2" 8}, "message" 23}} 23 {"id" 101, "src" "n0", "dest" "n2", "body" {"msg_id" 25, "type" "fwd_msg", "vv" {"n0" 8, "n1" 8, "n2" 8}, "message" 24}} 24 {"id" 105, "src" "n1", "dest" "n2", "body" {"msg_id" 28, "type" "fwd_msg", "vv" {"n0" 8, "n1" 9, "n2" 8}, "message" 25}} 25], :time 4875527400, :process 2, :type :ok, :index 51}

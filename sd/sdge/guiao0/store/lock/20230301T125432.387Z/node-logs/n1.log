@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/miguel/uni/4ano/sd/sdge/guiao0/lock-lamport.py", line 27, in <module>
+    send(node_id, node, type='request_lock', timestamp=timestamps[node_id], src=msg.src)
+TypeError: send() got multiple values for argument 'src'

@@ -1,0 +1,14 @@
+What is the size difference between TSV and Parquet? And Parquet using snappy (default) and gzip
+compressions?
+
+TSV - 8.3 MB
+Parquet default - 3.8 MB
+Parquet gzip - 2.6M
+
+What are the tradeoffs between snappy and gzip compressions?
+
+O gzip tem uma melhor taxa de compressão em comparação com o snappy, porém 
+o gzip 
+
+What is the benefit of data partitioning?
+

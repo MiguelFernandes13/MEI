@@ -1,0 +1,60 @@
+{:perf {:latency-graph {:valid? true},
+        :rate-graph {:valid? true},
+        :valid? true},
+ :timeline {:valid? true},
+ :exceptions {:valid? true},
+ :stats {:valid? true,
+         :count 21,
+         :ok-count 21,
+         :fail-count 0,
+         :info-count 0,
+         :by-f {:cbcast {:valid? true,
+                         :count 21,
+                         :ok-count 21,
+                         :fail-count 0,
+                         :info-count 0}}},
+ :net {:all {:send-count 90,
+             :recv-count 90,
+             :msg-count 90,
+             :msgs-per-op 4.285714},
+       :clients {:send-count 48, :recv-count 48, :msg-count 48},
+       :servers {:send-count 42,
+                 :recv-count 42,
+                 :msg-count 42,
+                 :msgs-per-op 2.0},
+       :valid? true},
+ :workload {:valid? false,
+            :errors ["duplicate delivery of message 1 to process 0"
+                     "duplicate delivery of message 1 to process 1"
+                     "duplicate delivery of message 2 to process 1"
+                     "duplicate delivery of message 3 to process 0"
+                     "duplicate delivery of message 4 to process 1"
+                     "duplicate delivery of message 5 to process 1"
+                     "duplicate delivery of message 2 to process 2"
+                     "duplicate delivery of message 3 to process 2"
+                     "duplicate delivery of message 4 to process 2"
+                     "duplicate delivery of message 5 to process 2"
+                     "duplicate delivery of message 6 to process 2"
+                     "duplicate delivery of message 7 to process 1"
+                     "duplicate delivery of message 8 to process 1"
+                     "duplicate delivery of message 6 to process 0"
+                     "duplicate delivery of message 7 to process 0"
+                     "duplicate delivery of message 8 to process 0"
+                     "duplicate delivery of message 9 to process 0"
+                     "duplicate delivery of message 9 to process 2"
+                     "duplicate delivery of message 10 to process 2"
+                     "duplicate delivery of message 11 to process 0"
+                     "duplicate delivery of message 12 to process 2"
+                     "duplicate delivery of message 10 to process 1"
+                     "duplicate delivery of message 11 to process 1"
+                     "duplicate delivery of message 12 to process 1"
+                     "duplicate delivery of message 13 to process 1"
+                     "duplicate delivery of message 14 to process 2"
+                     "duplicate delivery of message 15 to process 2"
+                     "duplicate delivery of message 13 to process 0"
+                     "duplicate delivery of message 14 to process 0"
+                     "duplicate delivery of message 15 to process 0"
+                     "duplicate delivery of message 16 to process 0"
+                     "duplicate delivery of message 17 to process 2"
+                     "duplicate delivery of message 18 to process 0"]},
+ :valid? false}

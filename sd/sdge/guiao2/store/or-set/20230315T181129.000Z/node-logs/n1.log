@@ -1,0 +1,18 @@
+DEBUG:root:received {"id":0,"src":"c0","dest":"n1","body":{"type":"init","node_id":"n1","node_ids":["n0","n1","n2"],"msg_id":1}}
+INFO:root:node n1 initialized
+DEBUG:root:sending {"dest": "c0", "src": "n1", "body": {"msg_id": 1, "in_reply_to": 1, "type": "init_ok"}}
+DEBUG:root:received {"id":7,"src":"n0","dest":"n1","body":{"msg_id":2,"type":"fwd_add","element":0,"id":["n0",1],"r":[],"vv":{"n0":1,"n1":0,"n2":0}}}
+DEBUG:root:received {"id":9,"src":"c7","dest":"n1","body":{"type":"read","msg_id":1}}
+DEBUG:root:sending {"dest": "c7", "src": "n1", "body": {"msg_id": 2, "in_reply_to": 1, "type": "read_ok", "values": {"0": [["n0", 1]]}}}
+DEBUG:root:received {"id":12,"src":"c9","dest":"n1","body":{"type":"read","msg_id":1}}
+DEBUG:root:sending {"dest": "c9", "src": "n1", "body": {"msg_id": 3, "in_reply_to": 1, "type": "read_ok", "values": {"0": [["n0", 1]]}}}
+DEBUG:root:received {"id":17,"src":"n2","dest":"n1","body":{"msg_id":4,"type":"fwd_add","element":1,"id":["n2",1],"r":[],"vv":{"n0":1,"n1":0,"n2":1}}}
+DEBUG:root:received {"id":18,"src":"c11","dest":"n1","body":{"type":"read","msg_id":1}}
+DEBUG:root:sending {"dest": "c11", "src": "n1", "body": {"msg_id": 4, "in_reply_to": 1, "type": "read_ok", "values": {"0": [["n0", 1]], "1": [["n2", 1]]}}}
+DEBUG:root:received {"id":20,"src":"c12","dest":"n1","body":{"type":"read","msg_id":1}}
+DEBUG:root:sending {"dest": "c12", "src": "n1", "body": {"msg_id": 5, "in_reply_to": 1, "type": "read_ok", "values": {"0": [["n0", 1]], "1": [["n2", 1]]}}}
+DEBUG:root:received {"id":22,"src":"c13","dest":"n1","body":{"element":2,"type":"add","msg_id":1}}
+DEBUG:root:sending {"dest": "n0", "src": "n1", "body": {"msg_id": 6, "type": "fwd_add", "element": 2, "id": ["n1", 1], "r": [], "vv": {"n0": 1, "n1": 1, "n2": 1}}}
+DEBUG:root:sending {"dest": "n2", "src": "n1", "body": {"msg_id": 7, "type": "fwd_add", "element": 2, "id": ["n1", 1], "r": [], "vv": {"n0": 1, "n1": 1, "n2": 1}}}
+DEBUG:root:received {"id":27,"src":"c16","dest":"n1","body":{"type":"read","msg_id":1}}
+DEBUG:root:sending {"dest": "c16", "src": "n1", "body": {"msg_id": 8, "in_reply_to": 1, "type": "read_ok", "values": {"0": [["n0", 1]], "1": [["n2", 1]], "2": [["n1", 1]]}}}

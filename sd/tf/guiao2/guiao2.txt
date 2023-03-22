@@ -1,0 +1,14 @@
+Escritas concocorrentes podem originar
+escritas de um valor com o mesma versão e
+não podemos garantir qual a ordem das mensagens
+
+Ao utilizar locks é possivel resolver problemas
+como as escritas concorrentes porém tras problemas
+adicionar, por exemplo, atribuir um lock a 
+um participante e este falhar ficando com o lock, a
+partir dai mais nenhum participante pode fazer alguma
+coisa
+
+CAS não é uma operaçao atomica, logo
+é impossivel implementar sem utilizar
+o acordo distribuido

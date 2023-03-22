@@ -1,0 +1,69 @@
+{:perf {:latency-graph {:valid? true},
+        :rate-graph {:valid? true},
+        :valid? true},
+ :timeline {:valid? true},
+ :exceptions {:valid? true},
+ :stats {:valid? true,
+         :count 53,
+         :ok-count 53,
+         :fail-count 0,
+         :info-count 0,
+         :by-f {:lock {:valid? true,
+                       :count 28,
+                       :ok-count 28,
+                       :fail-count 0,
+                       :info-count 0},
+                :unlock {:valid? true,
+                         :count 25,
+                         :ok-count 25,
+                         :fail-count 0,
+                         :info-count 0}}},
+ :availability {:valid? true, :ok-fraction 1.0},
+ :net {:all {:send-count 108,
+             :recv-count 108,
+             :msg-count 108,
+             :msgs-per-op 2.037736},
+       :clients {:send-count 108, :recv-count 108, :msg-count 108},
+       :servers {:send-count 0,
+                 :recv-count 0,
+                 :msg-count 0,
+                 :msgs-per-op 0.0},
+       :valid? true},
+ :workload {:valid? false,
+            :errors ["already acquired by process 0 when lock completed at {:index 3, :time 254560100, :type :ok, :process 2, :f :lock, :value nil}"
+                     "lock not owned when unlock invoked at {:index 4, :time 488956500, :type :invoke, :process 2, :f :unlock, :value nil}"
+                     "already acquired by process 0 when lock completed at {:index 7, :time 652482000, :type :ok, :process 1, :f :lock, :value nil}"
+                     "already acquired by process 0 when lock completed at {:index 9, :time 985386800, :type :ok, :process 2, :f :lock, :value nil}"
+                     "lock not owned when unlock invoked at {:index 10, :time 1170508900, :type :invoke, :process 2, :f :unlock, :value nil}"
+                     "already acquired by process 0 when lock completed at {:index 13, :time 1196330200, :type :ok, :process 2, :f :lock, :value nil}"
+                     "lock not owned when unlock invoked at {:index 14, :time 1489462200, :type :invoke, :process 1, :f :unlock, :value nil}"
+                     "already acquired by process 0 when lock completed at {:index 17, :time 1574764000, :type :ok, :process 1, :f :lock, :value nil}"
+                     "lock not owned when unlock invoked at {:index 18, :time 1659403700, :type :invoke, :process 1, :f :unlock, :value nil}"
+                     "lock not owned when unlock invoked at {:index 20, :time 2053394300, :type :invoke, :process 2, :f :unlock, :value nil}"
+                     "already acquired by process 0 when lock completed at {:index 23, :time 2292346800, :type :ok, :process 1, :f :lock, :value nil}"
+                     "already acquired by process 2 when lock completed at {:index 29, :time 2604901200, :type :ok, :process 0, :f :lock, :value nil}"
+                     "lock not owned when unlock invoked at {:index 30, :time 2803674700, :type :invoke, :process 1, :f :unlock, :value nil}"
+                     "lock not owned when unlock invoked at {:index 32, :time 3180092800, :type :invoke, :process 0, :f :unlock, :value nil}"
+                     "already acquired by process 2 when lock completed at {:index 35, :time 3206095700, :type :ok, :process 0, :f :lock, :value nil}"
+                     "lock not owned when unlock invoked at {:index 38, :time 3617432300, :type :invoke, :process 0, :f :unlock, :value nil}"
+                     "already acquired by process 0 when lock completed at {:index 43, :time 3958640900, :type :ok, :process 1, :f :lock, :value nil}"
+                     "already acquired by process 0 when lock completed at {:index 45, :time 3973413400, :type :ok, :process 2, :f :lock, :value nil}"
+                     "lock not owned when unlock invoked at {:index 46, :time 4312949700, :type :invoke, :process 1, :f :unlock, :value nil}"
+                     "lock not owned when unlock invoked at {:index 48, :time 4475583800, :type :invoke, :process 2, :f :unlock, :value nil}"
+                     "already acquired by process 0 when lock completed at {:index 51, :time 4677631900, :type :ok, :process 2, :f :lock, :value nil}"
+                     "lock not owned when unlock invoked at {:index 54, :time 5099878700, :type :invoke, :process 2, :f :unlock, :value nil}"
+                     "already acquired by process 2 when lock completed at {:index 63, :time 5746456900, :type :ok, :process 1, :f :lock, :value nil}"
+                     "already acquired by process 2 when lock completed at {:index 65, :time 6105294900, :type :ok, :process 0, :f :lock, :value nil}"
+                     "lock not owned when unlock invoked at {:index 68, :time 6311047700, :type :invoke, :process 0, :f :unlock, :value nil}"
+                     "lock not owned when unlock invoked at {:index 72, :time 6614565600, :type :invoke, :process 1, :f :unlock, :value nil}"
+                     "already acquired by process 2 when lock completed at {:index 79, :time 7054422800, :type :ok, :process 0, :f :lock, :value nil}"
+                     "already acquired by process 2 when lock completed at {:index 81, :time 7281350400, :type :ok, :process 1, :f :lock, :value nil}"
+                     "lock not owned when unlock invoked at {:index 82, :time 7626472100, :type :invoke, :process 1, :f :unlock, :value nil}"
+                     "already acquired by process 2 when lock completed at {:index 85, :time 7643610200, :type :ok, :process 1, :f :lock, :value nil}"
+                     "lock not owned when unlock invoked at {:index 86, :time 8000924400, :type :invoke, :process 0, :f :unlock, :value nil}"
+                     "already acquired by process 2 when lock completed at {:index 89, :time 8109856600, :type :ok, :process 0, :f :lock, :value nil}"
+                     "lock not owned when unlock invoked at {:index 92, :time 8418483700, :type :invoke, :process 1, :f :unlock, :value nil}"
+                     "lock not owned when unlock invoked at {:index 96, :time 9073130900, :type :invoke, :process 0, :f :unlock, :value nil}"
+                     "already acquired by process 1 when lock completed at {:index 99, :time 9129468800, :type :ok, :process 0, :f :lock, :value nil}"
+                     "already acquired by process 1 when lock completed at {:index 101, :time 9226075400, :type :ok, :process 2, :f :lock, :value nil}"]},
+ :valid? false}

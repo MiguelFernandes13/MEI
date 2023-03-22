@@ -1,0 +1,10 @@
+DEBUG:root:received {"id":0,"src":"c0","dest":"n2","body":{"type":"init","node_id":"n2","node_ids":["n0","n1","n2"],"msg_id":1}}
+INFO:root:node n2 initialized
+DEBUG:root:sending {"dest": "c0", "src": "n2", "body": {"msg_id": 1, "in_reply_to": 1, "type": "init_ok"}}
+DEBUG:root:received {"id":6,"src":"c6","dest":"n2","body":{"element":0,"type":"add","msg_id":1}}
+DEBUG:root:sending {"dest": "n0", "src": "n2", "body": {"msg_id": 2, "type": "fwd_add", "element": 0, "id": ["n2", 1], "r": [], "vv": {"n0": 0, "n1": 0, "n2": 1}}}
+DEBUG:root:sending {"dest": "n1", "src": "n2", "body": {"msg_id": 3, "type": "fwd_add", "element": 0, "id": ["n2", 1], "r": [], "vv": {"n0": 0, "n1": 0, "n2": 1}}}
+DEBUG:root:received {"id":11,"src":"n1","dest":"n2","body":{"msg_id":3,"type":"fwd_add","element":1,"id":["n1",1],"r":[],"vv":{"n0":0,"n1":1,"n2":1}}}
+DEBUG:root:received {"id":14,"src":"n0","dest":"n2","body":{"msg_id":3,"type":"fwd_add","element":2,"id":["n0",1],"r":[],"vv":{"n0":1,"n1":1,"n2":1}}}
+DEBUG:root:received {"id":16,"src":"c9","dest":"n2","body":{"type":"read","msg_id":1}}
+DEBUG:root:sending {"dest": "c9", "src": "n2", "body": {"msg_id": 4, "in_reply_to": 1, "type": "read_ok", "values": {"0": [["n2", 1]], "1": [["n1", 1]], "2": [["n0", 1]]}}}

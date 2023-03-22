@@ -1,0 +1,58 @@
+{:f :cbcast, :value 1, :time 17902600, :process 2, :type :invoke, :index 0}
+{:f :cbcast, :value [], :time 35793100, :process 2, :type :ok, :index 1}
+{:f :cbcast, :value 2, :time 97847900, :process 0, :type :invoke, :index 2}
+{:f :cbcast, :value 3, :time 122425800, :process 2, :type :invoke, :index 3}
+{:f :cbcast, :value [], :time 128675100, :process 2, :type :ok, :index 4}
+{:f :cbcast, :value 4, :time 158369600, :process 2, :type :invoke, :index 5}
+{:f :cbcast, :value [], :time 163496800, :process 2, :type :ok, :index 6}
+{:f :cbcast, :value [1], :time 387856900, :process 0, :type :ok, :index 7}
+{:f :cbcast, :value 5, :time 446770700, :process 1, :type :invoke, :index 8}
+{:f :cbcast, :value 6, :time 810821400, :process 0, :type :invoke, :index 9}
+{:f :cbcast, :value [1 3], :time 812868200, :process 1, :type :ok, :index 10}
+{:f :cbcast, :value [3 4], :time 1063453900, :process 0, :type :ok, :index 11}
+{:f :cbcast, :value 7, :time 1092601400, :process 0, :type :invoke, :index 12}
+{:f :cbcast, :value 8, :time 1098932400, :process 2, :type :invoke, :index 13}
+{:f :cbcast, :value [2], :time 1137488400, :process 2, :type :ok, :index 14}
+{:f :cbcast, :value 9, :time 1225370900, :process 2, :type :invoke, :index 15}
+{:f :cbcast, :value 10, :time 1236060700, :process 1, :type :invoke, :index 16}
+{:f :cbcast, :value [6], :time 1246656600, :process 2, :type :ok, :index 17}
+{:f :cbcast, :value 11, :time 1360288000, :process 2, :type :invoke, :index 18}
+{:f :cbcast, :value [5], :time 1377907200, :process 0, :type :ok, :index 19}
+{:f :cbcast, :value [5], :time 1541512900, :process 2, :type :ok, :index 20}
+{:f :cbcast, :value 12, :time 1683575000, :process 0, :type :invoke, :index 21}
+{:f :cbcast, :value 13, :time 1734531400, :process 2, :type :invoke, :index 22}
+{:f :cbcast, :value [8], :time 1736486000, :process 0, :type :ok, :index 23}
+{:f :cbcast, :value [7], :time 1868187300, :process 2, :type :ok, :index 24}
+{:f :cbcast, :value [2 4 6], :time 1947504700, :process 1, :type :ok, :index 25}
+{:f :cbcast, :value 14, :time 2070398400, :process 1, :type :invoke, :index 26}
+{:f :cbcast, :value [9 13 8 11], :time 2098277100, :process 1, :type :ok, :index 27}
+{:f :cbcast, :value 15, :time 2275215200, :process 1, :type :invoke, :index 28}
+{:f :cbcast, :value [7], :time 2307651200, :process 1, :type :ok, :index 29}
+{:f :cbcast, :value 16, :time 2652415000, :process 0, :type :invoke, :index 30}
+{:f :cbcast, :value 17, :time 2699219200, :process 2, :type :invoke, :index 31}
+{:f :cbcast, :value [12 14 10 15], :time 2724745100, :process 2, :type :ok, :index 32}
+{:f :cbcast, :value [9 11 10 13], :time 2830269900, :process 0, :type :ok, :index 33}
+{:f :cbcast, :value 18, :time 2853127800, :process 1, :type :invoke, :index 34}
+{:f :cbcast, :value [12 17 16], :time 2960221700, :process 1, :type :ok, :index 35}
+{:f :cbcast, :value 19, :time 2976907800, :process 0, :type :invoke, :index 36}
+{:f :cbcast, :value [15 14 17 18], :time 3004750200, :process 0, :type :ok, :index 37}
+{:f :cbcast, :value 20, :time 3208894900, :process 1, :type :invoke, :index 38}
+{:f :cbcast, :value [19], :time 3211661100, :process 1, :type :ok, :index 39}
+{:f :cbcast, :value 21, :time 3573979200, :process 0, :type :invoke, :index 40}
+{:f :cbcast, :value [20], :time 3576776800, :process 0, :type :ok, :index 41}
+{:f :cbcast, :value 22, :time 3692266100, :process 1, :type :invoke, :index 42}
+{:f :cbcast, :value 23, :time 3805961300, :process 0, :type :invoke, :index 43}
+{:f :cbcast, :value [], :time 3808212600, :process 0, :type :ok, :index 44}
+{:f :cbcast, :value 24, :time 4008668600, :process 2, :type :invoke, :index 45}
+{:f :cbcast, :value [16 18 19 20 21], :time 4208800800, :process 2, :type :ok, :index 46}
+{:f :cbcast, :value 25, :time 4238962400, :process 2, :type :invoke, :index 47}
+{:f :cbcast, :value 26, :time 4277080400, :process 0, :type :invoke, :index 48}
+{:f :cbcast, :value [23], :time 4416942000, :process 2, :type :ok, :index 49}
+{:f :cbcast, :value [21], :time 4434870400, :process 1, :type :ok, :index 50}
+{:f :cbcast, :value 27, :time 4571133600, :process 2, :type :invoke, :index 51}
+{:f :cbcast, :value 28, :time 4710002200, :process 1, :type :invoke, :index 52}
+{:f :cbcast, :value [24], :time 4821156900, :process 0, :type :ok, :index 53}
+{:f :cbcast, :value 29, :time 4865901500, :process 0, :type :invoke, :index 54}
+{:f :cbcast, :value [25 22], :time 4867993700, :process 0, :type :ok, :index 55}
+{:f :cbcast, :value [23 25 24], :time 5001603600, :process 1, :type :ok, :index 56}
+{:f :cbcast, :value [22], :time 5387597600, :process 2, :type :ok, :index 57}

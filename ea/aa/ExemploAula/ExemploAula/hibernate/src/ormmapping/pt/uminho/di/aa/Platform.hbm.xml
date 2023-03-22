@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Miguel Fernandes(Universidade do Minho)
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="pt.uminho.di.aa.Platform" table="Platform" lazy="false">
+		<id name="attribute" column="Attribute" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="ID" column="ID" type="integer" length="10" not-null="true" lazy="false"/>
+		<property name="name" column="Name" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="year" column="Year" type="integer" length="10" not-null="true" lazy="false"/>
+		<property name="description" column="Description" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="manufacturer" column="Manufacturer" type="string" length="255" not-null="false" lazy="false"/>
+		<set name="ORM_Games" lazy="true" cascade="save-update,lock" inverse="true">
+			<key column="PlatformAttribute" not-null="true"/>
+			<one-to-many class="pt.uminho.di.aa.Game"/>
+		</set>
+	</class>
+</hibernate-mapping>

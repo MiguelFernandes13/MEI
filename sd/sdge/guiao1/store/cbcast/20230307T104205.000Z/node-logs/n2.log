@@ -1,0 +1,4 @@
+  File "/home/miguel/uni/4ano/sd/sdge/guiao1/wrong-causal-broadcast.py", line 19
+    match msg.body.type:
+          ^
+SyntaxError: invalid syntax

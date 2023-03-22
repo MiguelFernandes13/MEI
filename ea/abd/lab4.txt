@@ -1,0 +1,54 @@
+client with the most invoices and the 10th client with the most invoices
+select c.id, count(i.id) from client c join invoice i on
+ i.clientid = c.id group by c.id order by count(i.id) desc limit 10;
+
+ client whith leat invoices
+select c.id, count(i.id) from client c join invoice i on
+    i.clientid = c.id group by c.id order by count(i.id) asc limit 1;
+    
+
+Plan generated for the client with most invoices
+ Hash Join  (cost=183.56..675.08 rows=196 width=4) (actual time=1.395..1.873 rows=196 loops=1)
+   Hash Cond: (i.productid = p.id)
+   ->  Bitmap Heap Scan on invoice i  (cost=13.52..502.35 rows=196 width=4) (actual time=0.033..0.266 rows=196 loops=1)
+         Recheck Cond: (clientid = 1023)
+         Heap Blocks: exact=172
+         ->  Bitmap Index Scan on invoice_clientid_idx  (cost=0.00..13.47 rows=196 width=0) (actual time=0.014..0.015 ro
+ws=196 loops=1)
+               Index Cond: (clientid = 1023)
+   ->  Hash  (cost=157.24..157.24 rows=1024 width=4) (actual time=1.356..1.358 rows=1024 loops=1)
+         Buckets: 1024  Batches: 1  Memory Usage: 44kB
+         ->  Seq Scan on product p  (cost=0.00..157.24 rows=1024 width=4) (actual time=0.004..0.761 rows=1024 loops=1)
+ Planning Time: 0.083 ms
+ Execution Time: 1.984 ms
+(12 rows)
+
+Plan generated for the 10th client with most invoices
+ Hash Join  (cost=174.54..377.41 rows=64 width=4) (actual time=1.462..1.622 rows=64 loops=1)
+   Hash Cond: (i.productid = p.id)
+   ->  Bitmap Heap Scan on invoice i  (cost=4.50..206.49 rows=64 width=4) (actual time=0.020..0.103 rows=64 loops=1)
+         Recheck Cond: (clientid = 1019)
+         Heap Blocks: exact=61
+         ->  Bitmap Index Scan on invoice_clientid_idx  (cost=0.00..4.48 rows=64 width=0) (actual time=0.010..0.010 rows
+=64 loops=1)
+               Index Cond: (clientid = 1019)
+   ->  Hash  (cost=157.24..157.24 rows=1024 width=4) (actual time=1.436..1.438 rows=1024 loops=1)
+         Buckets: 1024  Batches: 1  Memory Usage: 44kB
+         ->  Seq Scan on product p  (cost=0.00..157.24 rows=1024 width=4) (actual time=0.003..0.796 rows=1024 loops=1)
+ Planning Time: 0.082 ms
+ Execution Time: 1.671 ms
+(12 rows)
+
+
+Plan generated for the client with less invoices
+ Nested Loop  (cost=4.02..39.65 rows=3 width=4) (actual time=0.010..0.012 rows=0 loops=1)
+   ->  Bitmap Heap Scan on invoice i  (cost=4.02..15.56 rows=3 width=4) (actual time=0.008..0.009 rows=0 loops=1)
+         Recheck Cond: (clientid = 440)
+         ->  Bitmap Index Scan on invoice_clientid_idx  (cost=0.00..4.02 rows=3 width=0) (actual time=0.006..0.007 rows=
+0 loops=1)
+               Index Cond: (clientid = 440)
+   ->  Index Scan using product_id_idx on product p  (cost=0.00..8.02 rows=1 width=4) (never executed)
+         Index Cond: (id = i.productid)
+ Planning Time: 0.108 ms
+ Execution Time: 0.030 ms
+(9 rows)

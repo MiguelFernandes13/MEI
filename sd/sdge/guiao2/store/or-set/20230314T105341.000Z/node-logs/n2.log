@@ -1,0 +1,5 @@
+DEBUG:root:received {"id":0,"src":"c0","dest":"n2","body":{"type":"init","node_id":"n2","node_ids":["n0","n1","n2"],"msg_id":1}}
+INFO:root:node n2 initialized
+DEBUG:root:sending {"dest": "c0", "src": "n2", "body": {"msg_id": 1, "in_reply_to": 1, "type": "init_ok"}}
+DEBUG:root:received {"id":6,"src":"c6","dest":"n2","body":{"element":0,"type":"remove","msg_id":1}}
+DEBUG:root:received {"id":10,"src":"c10","dest":"n2","body":{"type":"read","msg_id":1}}

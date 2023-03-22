@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/miguel/uni/4ano/sd/sdge/guiao0/lock-lamport.py", line 78, in <module>
+    requests.remove((msg.src, msg.body.request_timestamp))
+ValueError: list.remove(x): x not in list

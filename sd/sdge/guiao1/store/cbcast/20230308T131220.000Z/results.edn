@@ -1,0 +1,60 @@
+{:perf {:latency-graph {:valid? true},
+        :rate-graph {:valid? true},
+        :valid? true},
+ :timeline {:valid? true},
+ :exceptions {:valid? true},
+ :stats {:valid? true,
+         :count 26,
+         :ok-count 26,
+         :fail-count 0,
+         :info-count 0,
+         :by-f {:cbcast {:valid? true,
+                         :count 26,
+                         :ok-count 26,
+                         :fail-count 0,
+                         :info-count 0}}},
+ :net {:all {:send-count 110,
+             :recv-count 108,
+             :msg-count 110,
+             :msgs-per-op 4.230769},
+       :clients {:send-count 58, :recv-count 58, :msg-count 58},
+       :servers {:send-count 52,
+                 :recv-count 50,
+                 :msg-count 52,
+                 :msgs-per-op 2.0},
+       :valid? true},
+ :workload {:valid? false,
+            :errors ["duplicate delivery of message 1 to process 0"
+                     "duplicate delivery of message 2 to process 0"
+                     "duplicate delivery of message 5 to process 0"
+                     "duplicate delivery of message 6 to process 0"
+                     "duplicate delivery of message 7 to process 0"
+                     "duplicate delivery of message 8 to process 0"
+                     "duplicate delivery of message 3 to process 1"
+                     "missing dependencies [6 6] when delivering message 7 to process 1"
+                     "duplicate delivery of message 9 to process 0"
+                     "duplicate delivery of message 4 to process 2"
+                     "missing dependencies [6 6] when delivering message 7 to process 2"
+                     "missing dependencies [3 3] when delivering message 11 to process 2"
+                     "duplicate delivery of message 11 to process 1"
+                     "duplicate delivery of message 13 to process 1"
+                     "duplicate delivery of message 14 to process 1"
+                     "missing dependencies [4 4] when delivering message 12 to process 1"
+                     "duplicate delivery of message 15 to process 1"
+                     "duplicate delivery of message 10 to process 0"
+                     "missing dependencies [4 4] when delivering message 12 to process 0"
+                     "duplicate delivery of message 12 to process 2"
+                     "missing dependencies [14 14] when delivering message 15 to process 2"
+                     "missing dependencies [10] when delivering message 14 to process 2"
+                     "missing dependencies [10 10] when delivering message 16 to process 2"
+                     "duplicate delivery of message 17 to process 1"
+                     "duplicate delivery of message 18 to process 2"
+                     "duplicate delivery of message 20 to process 1"
+                     "duplicate delivery of message 21 to process 1"
+                     "duplicate delivery of message 16 to process 0"
+                     "missing dependencies [18 18] when delivering message 19 to process 0"
+                     "duplicate delivery of message 19 to process 2"
+                     "missing dependencies [17 17] when delivering message 20 to process 2"
+                     "duplicate delivery of message 23 to process 2"
+                     "duplicate delivery of message 24 to process 1"]},
+ :valid? false}

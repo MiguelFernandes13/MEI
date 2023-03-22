@@ -1,0 +1,215 @@
+2023-03-08 12:54:56,561{GMT}	INFO	[jepsen test runner] jepsen.core: Command line:
+lein run test -w cbcast --bin causal-broadcast.py --time-limit 5 --node-count 3 --latency-dist uniform --latency 500
+2023-03-08 12:54:56,618{GMT}	INFO	[jepsen test runner] jepsen.core: Running test:
+{:args []
+ :remote
+ #jepsen.control.retry.Remote{:remote #jepsen.control.scp.Remote{:cmd-remote #jepsen.control.clj_ssh.Remote{:concurrency-limit 8,
+                                                                                                            :conn-spec nil,
+                                                                                                            :session nil,
+                                                                                                            :semaphore nil},
+                                                                 :conn-spec nil},
+                              :conn nil}
+ :log-net-send false
+ :node-count 3
+ :max-txn-length 4
+ :concurrency 3
+ :db
+ #object[maelstrom.db$db$reify__16817
+         "0x7ba5d307"
+         "maelstrom.db$db$reify__16817@7ba5d307"]
+ :max-writes-per-key 16
+ :leave-db-running? false
+ :name "cbcast"
+ :logging-json? false
+ :start-time
+ #object[org.joda.time.DateTime "0x684001e6" "2023-03-08T12:54:56.000Z"]
+ :nemesis-interval 10
+ :net
+ #object[maelstrom.net$jepsen_net$reify__15673
+         "0x6bb2b8d4"
+         "maelstrom.net$jepsen_net$reify__15673@6bb2b8d4"]
+ :client
+ #object[maelstrom.workload.cbcast$client$reify__18677
+         "0x64230d44"
+         "maelstrom.workload.cbcast$client$reify__18677@64230d44"]
+ :barrier
+ #object[java.util.concurrent.CyclicBarrier
+         "0x1ff584d7"
+         "java.util.concurrent.CyclicBarrier@1ff584d7"]
+ :log-stderr false
+ :pure-generators true
+ :ssh {:dummy? true}
+ :rate 5
+ :checker
+ #object[jepsen.checker$compose$reify__8787
+         "0x7752f9fe"
+         "jepsen.checker$compose$reify__8787@7752f9fe"]
+ :argv
+ ("test"
+  "-w"
+  "cbcast"
+  "--bin"
+  "causal-broadcast.py"
+  "--time-limit"
+  "5"
+  "--node-count"
+  "3"
+  "--latency-dist"
+  "uniform"
+  "--latency"
+  "500")
+ :nemesis
+ (jepsen.nemesis.ReflCompose
+  {:fm {:start-partition 0,
+        :stop-partition 0,
+        :kill 1,
+        :start 1,
+        :pause 1,
+        :resume 1},
+   :nemeses [#unprintable "jepsen.nemesis.combined$partition_nemesis$reify__17089@9588bd8"
+             #unprintable "jepsen.nemesis.combined$db_nemesis$reify__17070@75edfe9a"]})
+ :nodes ["n0" "n1" "n2"]
+ :test-count 1
+ :latency {:mean 500, :dist :uniform}
+ :bin "causal-broadcast.py"
+ :generator
+ (jepsen.generator.TimeLimit
+  {:limit 5000000000,
+   :cutoff nil,
+   :gen (jepsen.generator.Any
+         {:gens [(jepsen.generator.OnThreads {:f #{:nemesis}, :gen nil})
+                 (jepsen.generator.OnThreads
+                  {:f #object[clojure.core$complement$fn__5654
+                              "0x6351efa6"
+                              "clojure.core$complement$fn__5654@6351efa6"],
+                   :gen (jepsen.generator.Stagger
+                         {:dt 400000000,
+                          :next-time nil,
+                          :gen ({:f :cbcast, :value 1}
+                                {:f :cbcast, :value 2}
+                                {:f :cbcast, :value 3}
+                                {:f :cbcast, :value 4}
+                                {:f :cbcast, :value 5}
+                                {:f :cbcast, :value 6}
+                                {:f :cbcast, :value 7}
+                                {:f :cbcast, :value 8}
+                                ...)})})]})})
+ :log-net-recv false
+ :os
+ #object[maelstrom.net$jepsen_os$reify__15676
+         "0x349e166"
+         "maelstrom.net$jepsen_os$reify__15676@349e166"]
+ :time-limit 5
+ :workload :cbcast
+ :consistency-models [:strict-serializable]
+ :topology :grid}
+
+2023-03-08 12:54:56,627{GMT}	INFO	[jepsen node n0] maelstrom.net: Starting Maelstrom network
+2023-03-08 12:54:56,628{GMT}	INFO	[jepsen test runner] jepsen.db: Tearing down DB
+2023-03-08 12:54:56,630{GMT}	INFO	[jepsen test runner] jepsen.db: Setting up DB
+2023-03-08 12:54:56,632{GMT}	INFO	[jepsen node n2] maelstrom.db: Setting up n2
+2023-03-08 12:54:56,632{GMT}	INFO	[jepsen node n1] maelstrom.db: Setting up n1
+2023-03-08 12:54:56,633{GMT}	INFO	[jepsen node n1] maelstrom.process: launching causal-broadcast.py []
+2023-03-08 12:54:56,633{GMT}	INFO	[jepsen node n2] maelstrom.process: launching causal-broadcast.py []
+2023-03-08 12:54:56,633{GMT}	INFO	[jepsen node n0] maelstrom.service: Starting services: (lin-kv lin-tso lww-kv seq-kv)
+2023-03-08 12:54:56,636{GMT}	INFO	[jepsen node n0] maelstrom.db: Setting up n0
+2023-03-08 12:54:56,637{GMT}	INFO	[jepsen node n0] maelstrom.process: launching causal-broadcast.py []
+2023-03-08 12:54:56,679{GMT}	INFO	[jepsen test runner] jepsen.core: Relative time begins now
+2023-03-08 12:54:56,698{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:cbcast	1
+2023-03-08 12:54:56,702{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:cbcast	[]
+2023-03-08 12:54:57,044{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:cbcast	2
+2023-03-08 12:54:57,047{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:ok	:cbcast	[1]
+2023-03-08 12:54:57,267{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:cbcast	3
+2023-03-08 12:54:57,356{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:cbcast	4
+2023-03-08 12:54:57,358{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:ok	:cbcast	[]
+2023-03-08 12:54:57,365{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:cbcast	[1 2]
+2023-03-08 12:54:57,637{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:cbcast	5
+2023-03-08 12:54:57,683{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:cbcast	6
+2023-03-08 12:54:57,686{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:ok	:cbcast	[3]
+2023-03-08 12:54:57,796{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:cbcast	[2]
+2023-03-08 12:54:58,057{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:cbcast	7
+2023-03-08 12:54:58,098{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:cbcast	[6]
+2023-03-08 12:54:58,307{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:cbcast	8
+2023-03-08 12:54:58,308{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:cbcast	[4]
+2023-03-08 12:54:58,456{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:cbcast	9
+2023-03-08 12:54:58,485{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:cbcast	10
+2023-03-08 12:54:58,493{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:ok	:cbcast	[7 5]
+2023-03-08 12:54:58,757{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:cbcast	[4 6 8 5 7]
+2023-03-08 12:54:58,814{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:cbcast	11
+2023-03-08 12:54:59,017{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:cbcast	12
+2023-03-08 12:54:59,253{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:cbcast	13
+2023-03-08 12:54:59,377{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:cbcast	[9]
+2023-03-08 12:54:59,377{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:cbcast	14
+2023-03-08 12:54:59,434{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:cbcast	[]
+2023-03-08 12:54:59,459{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:cbcast	15
+2023-03-08 12:54:59,583{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:ok	:cbcast	[10]
+2023-03-08 12:54:59,583{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:cbcast	16
+2023-03-08 12:54:59,628{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:cbcast	[10 3]
+2023-03-08 12:54:59,763{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:ok	:cbcast	[13]
+2023-03-08 12:54:59,894{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:cbcast	17
+2023-03-08 12:54:59,979{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:cbcast	18
+2023-03-08 12:55:00,035{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:cbcast	[11 16]
+2023-03-08 12:55:00,192{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:cbcast	19
+2023-03-08 12:55:00,194{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:ok	:cbcast	[]
+2023-03-08 12:55:00,279{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:cbcast	[12]
+2023-03-08 12:55:00,548{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:ok	:cbcast	[12 8]
+2023-03-08 12:55:00,565{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:cbcast	20
+2023-03-08 12:55:00,646{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:cbcast	[14 11 9 19]
+2023-03-08 12:55:00,944{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:cbcast	21
+2023-03-08 12:55:01,144{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:ok	:cbcast	[17 14 20]
+2023-03-08 12:55:01,327{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:cbcast	22
+2023-03-08 12:55:01,348{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:ok	:cbcast	[17 18 16]
+2023-03-08 12:55:01,693{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:cbcast	23
+2023-03-08 12:55:01,695{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:ok	:cbcast	[15 22]
+2023-03-08 12:55:01,699{GMT}	INFO	[jepsen node n0] maelstrom.db: Tearing down n0
+2023-03-08 12:55:01,700{GMT}	INFO	[jepsen node n1] maelstrom.db: Tearing down n1
+2023-03-08 12:55:01,700{GMT}	INFO	[jepsen node n2] maelstrom.db: Tearing down n2
+2023-03-08 12:55:02,696{GMT}	INFO	[jepsen node n0] maelstrom.net: Shutting down Maelstrom network
+2023-03-08 12:55:02,697{GMT}	INFO	[jepsen test runner] jepsen.core: Run complete, writing
+2023-03-08 12:55:02,703{GMT}	INFO	[jepsen test runner] jepsen.core: Analyzing...
+2023-03-08 12:55:02,906{GMT}	INFO	[jepsen test runner] jepsen.core: Analysis complete
+2023-03-08 12:55:02,913{GMT}	INFO	[jepsen results] jepsen.store: Wrote /home/miguel/uni/4ano/sd/sdge/guiao1/store/cbcast/20230308T125456.000Z/results.edn
+2023-03-08 12:55:02,922{GMT}	INFO	[jepsen test runner] jepsen.core: {:perf {:latency-graph {:valid? true},
+        :rate-graph {:valid? true},
+        :valid? true},
+ :timeline {:valid? true},
+ :exceptions {:valid? true},
+ :stats {:valid? true,
+         :count 23,
+         :ok-count 23,
+         :fail-count 0,
+         :info-count 0,
+         :by-f {:cbcast {:valid? true,
+                         :count 23,
+                         :ok-count 23,
+                         :fail-count 0,
+                         :info-count 0}}},
+ :net {:all {:send-count 98,
+             :recv-count 97,
+             :msg-count 98,
+             :msgs-per-op 4.2608695},
+       :clients {:send-count 52, :recv-count 52, :msg-count 52},
+       :servers {:send-count 46,
+                 :recv-count 45,
+                 :msg-count 46,
+                 :msgs-per-op 2.0},
+       :valid? true},
+ :workload {:valid? false,
+            :errors ["missing dependencies [4 3] when delivering message 6 to process 0"
+                     "missing dependencies [5] when delivering message 7 to process 1"
+                     "missing dependencies [7] when delivering message 8 to process 2"
+                     "missing dependencies [8] when delivering message 10 to process 1"
+                     "missing dependencies [3] when delivering message 10 to process 0"
+                     "missing dependencies [13] when delivering message 16 to process 0"
+                     "missing dependencies [9] when delivering message 12 to process 2"
+                     "missing dependencies [8] when delivering message 12 to process 1"
+                     "missing dependencies [9] when delivering message 11 to process 2"
+                     "missing dependencies [17] when delivering message 19 to process 2"
+                     "missing dependencies [14] when delivering message 17 to process 1"
+                     "missing dependencies [15 19] when delivering message 20 to process 1"
+                     "missing dependencies [16] when delivering message 17 to process 2"
+                     "missing dependencies [16] when delivering message 18 to process 2"]},
+ :valid? false}
+
+
+Analysis invalid! (ﾉಥ益ಥ）ﾉ ┻━┻

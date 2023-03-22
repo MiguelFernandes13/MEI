@@ -1,0 +1,56 @@
+0	:invoke	:cbcast	1
+0	:ok	:cbcast	[]
+1	:invoke	:cbcast	2
+1	:ok	:cbcast	[1]
+0	:invoke	:cbcast	3
+0	:ok	:cbcast	[2]
+0	:invoke	:cbcast	4
+0	:ok	:cbcast	[]
+0	:invoke	:cbcast	5
+0	:ok	:cbcast	[]
+2	:invoke	:cbcast	6
+2	:ok	:cbcast	[1 2 3 4 5]
+1	:invoke	:cbcast	7
+1	:ok	:cbcast	[3 4 5 6]
+0	:invoke	:cbcast	8
+0	:ok	:cbcast	[6 7]
+2	:invoke	:cbcast	9
+2	:ok	:cbcast	[7 8]
+2	:invoke	:cbcast	10
+2	:ok	:cbcast	[]
+2	:invoke	:cbcast	11
+2	:ok	:cbcast	[]
+2	:invoke	:cbcast	12
+2	:ok	:cbcast	[]
+1	:invoke	:cbcast	13
+1	:ok	:cbcast	[8 9 10 11 12]
+2	:invoke	:cbcast	14
+2	:ok	:cbcast	[13]
+2	:invoke	:cbcast	15
+2	:ok	:cbcast	[]
+2	:invoke	:cbcast	16
+2	:ok	:cbcast	[]
+0	:invoke	:cbcast	17
+0	:ok	:cbcast	[9 10 11 12 13 14 15 16]
+0	:invoke	:cbcast	18
+0	:ok	:cbcast	[]
+0	:invoke	:cbcast	19
+0	:ok	:cbcast	[]
+1	:invoke	:cbcast	20
+1	:ok	:cbcast	[14 15 16 17 18 19]
+2	:invoke	:cbcast	21
+2	:ok	:cbcast	[17 18 19 20]
+0	:invoke	:cbcast	22
+0	:ok	:cbcast	[20 21]
+2	:invoke	:cbcast	23
+2	:ok	:cbcast	[22]
+0	:invoke	:cbcast	24
+0	:ok	:cbcast	[23]
+0	:invoke	:cbcast	25
+0	:ok	:cbcast	[]
+0	:invoke	:cbcast	26
+0	:ok	:cbcast	[]
+1	:invoke	:cbcast	27
+1	:ok	:cbcast	[21 22 23 24 25 26]
+1	:invoke	:cbcast	28
+1	:ok	:cbcast	[]

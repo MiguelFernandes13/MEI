@@ -1,0 +1,46 @@
+{:index 0, :time 11976900, :type :invoke, :process 2, :f :lock, :value nil}
+{:index 1, :time 22073200, :type :ok, :process 2, :f :lock, :value nil}
+{:index 2, :time 102058000, :type :invoke, :process 0, :f :lock, :value nil}
+{:index 3, :time 426651600, :type :invoke, :process 1, :f :lock, :value nil}
+{:index 4, :time 527587300, :type :invoke, :process 2, :f :unlock, :value nil}
+{:index 5, :time 530362400, :type :ok, :process 2, :f :unlock, :value nil}
+{:index 6, :time 530934000, :type :ok, :process 1, :f :lock, :value nil}
+{:index 7, :time 919909900, :type :invoke, :process 1, :f :unlock, :value nil}
+{:index 8, :time 922274200, :type :ok, :process 1, :f :unlock, :value nil}
+{:index 9, :time 922952200, :type :ok, :process 0, :f :lock, :value nil}
+{:index 10, :time 976032000, :type :invoke, :process 3, :f :lock, :value nil}
+{:index 11, :time 980120700, :type :ok, :process 3, :f :lock, :value nil}
+{:index 12, :time 1357324600, :type :invoke, :process 1, :f :lock, :value nil}
+{:index 13, :time 1464753900, :type :invoke, :process 0, :f :unlock, :value nil}
+{:index 14, :time 1593241500, :type :invoke, :process 3, :f :unlock, :value nil}
+{:index 15, :time 1595949600, :type :ok, :process 3, :f :unlock, :value nil}
+{:index 16, :time 1786664800, :type :invoke, :process 3, :f :lock, :value nil}
+{:index 17, :time 1790583400, :type :ok, :process 1, :f :lock, :value nil}
+{:index 18, :time 2048221400, :type :invoke, :process 1, :f :unlock, :value nil}
+{:index 19, :time 2050570100, :type :ok, :process 1, :f :unlock, :value nil}
+{:index 20, :time 2232323700, :type :invoke, :process 2, :f :lock, :value nil}
+{:index 21, :time 2235701700, :type :ok, :process 2, :f :lock, :value nil}
+{:index 22, :time 2270794500, :type :invoke, :process 1, :f :lock, :value nil}
+{:index 23, :time 2340705500, :type :invoke, :process 2, :f :unlock, :value nil}
+{:index 24, :time 2343065400, :type :ok, :process 2, :f :unlock, :value nil}
+{:index 25, :time 2343639400, :type :ok, :process 3, :f :lock, :value nil}
+{:index 26, :time 2375015900, :type :invoke, :process 2, :f :lock, :value nil}
+{:index 27, :time 2378152600, :type :ok, :process 2, :f :lock, :value nil}
+{:index 28, :time 2457025400, :type :invoke, :process 3, :f :unlock, :value nil}
+{:index 29, :time 2610667100, :type :invoke, :process 2, :f :unlock, :value nil}
+{:index 30, :time 2613468200, :type :ok, :process 2, :f :unlock, :value nil}
+{:index 31, :time 2613958400, :type :ok, :process 1, :f :lock, :value nil}
+{:index 32, :time 3007945500, :type :invoke, :process 2, :f :lock, :value nil}
+{:index 33, :time 3011329900, :type :ok, :process 2, :f :lock, :value nil}
+{:index 34, :time 3147127600, :type :invoke, :process 1, :f :unlock, :value nil}
+{:index 35, :time 3236930100, :type :invoke, :process 2, :f :unlock, :value nil}
+{:index 36, :time 3239380200, :type :ok, :process 2, :f :unlock, :value nil}
+{:index 37, :time 3268517400, :type :invoke, :process 2, :f :lock, :value nil}
+{:index 38, :time 3271957100, :type :ok, :process 2, :f :lock, :value nil}
+{:index 39, :time 3508784000, :type :invoke, :process 2, :f :unlock, :value nil}
+{:index 40, :time 3510975600, :type :ok, :process 2, :f :unlock, :value nil}
+{:index 41, :time 3814916900, :type :invoke, :process 2, :f :lock, :value nil}
+{:index 42, :time 6466747900, :type :info, :process 0, :f :unlock, :value nil, :error :net-timeout}
+{:index 43, :time 7457585400, :type :info, :process 3, :f :unlock, :value nil, :error :net-timeout}
+{:index 44, :time 8148205400, :type :info, :process 1, :f :unlock, :value nil, :error :net-timeout}
+{:index 45, :time 8815791300, :type :info, :process 2, :f :lock, :value nil, :error :net-timeout}

@@ -1,0 +1,144 @@
+{:perf {:latency-graph {:valid? true},
+        :rate-graph {:valid? true},
+        :valid? true},
+ :timeline {:valid? true},
+ :exceptions {:valid? true,
+              :exceptions ({:count 9,
+                            :class clojure.lang.ExceptionInfo,
+                            :example {:f :remove,
+                                      :value 0,
+                                      :time 22426100,
+                                      :process 2,
+                                      :type :info,
+                                      :exception {:via [{:type clojure.lang.ExceptionInfo,
+                                                         :message "throw+: {:type :rpc-error, :code 200, :name :unknown, :definite? false, :body {:msg_id 2, :in_reply_to 1, :type \"error\", :code 200, :message \"element not in set\"}}",
+                                                         :data {:type :rpc-error,
+                                                                :code 200,
+                                                                :name :unknown,
+                                                                :definite? false,
+                                                                :body {:msg_id 2,
+                                                                       :in_reply_to 1,
+                                                                       :type "error",
+                                                                       :code 200,
+                                                                       :message "element not in set"}},
+                                                         :at [slingshot.support$stack_trace
+                                                              invoke
+                                                              "support.clj"
+                                                              201]}],
+                                                  :trace [[slingshot.support$stack_trace
+                                                           invoke
+                                                           "support.clj"
+                                                           201]
+                                                          [maelstrom.client$throw_errors_BANG_
+                                                           invokeStatic
+                                                           "client.clj"
+                                                           194]
+                                                          [maelstrom.client$throw_errors_BANG_
+                                                           invoke
+                                                           "client.clj"
+                                                           186]
+                                                          [maelstrom.client$rpc_BANG_
+                                                           invokeStatic
+                                                           "client.clj"
+                                                           211]
+                                                          [maelstrom.client$rpc_BANG_
+                                                           invoke
+                                                           "client.clj"
+                                                           201]
+                                                          [maelstrom.workload.or_set$fn__18738$remove_BANG___18739
+                                                           invoke
+                                                           "or_set.clj"
+                                                           20]
+                                                          [maelstrom.workload.or_set$fn__18738$remove_BANG___18739
+                                                           invoke
+                                                           "or_set.clj"
+                                                           20]
+                                                          [maelstrom.workload.or_set$client$reify__18760
+                                                           invoke_BANG_
+                                                           "or_set.clj"
+                                                           50]
+                                                          [jepsen.client.Validate
+                                                           invoke_BANG_
+                                                           "client.clj"
+                                                           83]
+                                                          [jepsen.generator.interpreter.ClientWorker
+                                                           invoke_BANG_
+                                                           "interpreter.clj"
+                                                           62]
+                                                          [jepsen.generator.interpreter$spawn_worker$fn__9720$fn__9721
+                                                           invoke
+                                                           "interpreter.clj"
+                                                           137]
+                                                          [jepsen.generator.interpreter$spawn_worker$fn__9720
+                                                           invoke
+                                                           "interpreter.clj"
+                                                           120]
+                                                          [clojure.core$binding_conveyor_fn$fn__5739
+                                                           invoke
+                                                           "core.clj"
+                                                           2030]
+                                                          [clojure.lang.AFn
+                                                           call
+                                                           "AFn.java"
+                                                           18]
+                                                          [java.util.concurrent.FutureTask
+                                                           run
+                                                           "FutureTask.java"
+                                                           264]
+                                                          [java.util.concurrent.ThreadPoolExecutor
+                                                           runWorker
+                                                           "ThreadPoolExecutor.java"
+                                                           1136]
+                                                          [java.util.concurrent.ThreadPoolExecutor$Worker
+                                                           run
+                                                           "ThreadPoolExecutor.java"
+                                                           635]
+                                                          [java.lang.Thread
+                                                           run
+                                                           "Thread.java"
+                                                           833]],
+                                                  :cause "throw+: {:type :rpc-error, :code 200, :name :unknown, :definite? false, :body {:msg_id 2, :in_reply_to 1, :type \"error\", :code 200, :message \"element not in set\"}}",
+                                                  :data {:type :rpc-error,
+                                                         :code 200,
+                                                         :name :unknown,
+                                                         :definite? false,
+                                                         :body {:msg_id 2,
+                                                                :in_reply_to 1,
+                                                                :type "error",
+                                                                :code 200,
+                                                                :message "element not in set"}}},
+                                      :error "indeterminate: throw+: {:type :rpc-error, :code 200, :name :unknown, :definite? false, :body {:msg_id 2, :in_reply_to 1, :type \"error\", :code 200, :message \"element not in set\"}}",
+                                      :index 1}})},
+ :stats {:valid? false,
+         :count 9,
+         :ok-count 0,
+         :fail-count 0,
+         :info-count 9,
+         :by-f {:add {:valid? false,
+                      :count 2,
+                      :ok-count 0,
+                      :fail-count 0,
+                      :info-count 2},
+                :read {:valid? false,
+                       :count 5,
+                       :ok-count 0,
+                       :fail-count 0,
+                       :info-count 5},
+                :remove {:valid? false,
+                         :count 2,
+                         :ok-count 0,
+                         :fail-count 0,
+                         :info-count 2}}},
+ :net {:all {:send-count 24,
+             :recv-count 24,
+             :msg-count 24,
+             :msgs-per-op 2.6666667},
+       :clients {:send-count 20, :recv-count 20, :msg-count 20},
+       :servers {:send-count 4,
+                 :recv-count 4,
+                 :msg-count 4,
+                 :msgs-per-op 0.44444445},
+       :valid? true},
+ :workload {:valid? :unknown,
+            :error "java.lang.IllegalArgumentException: No implementation of method: :check of protocol: #'jepsen.checker/Checker found for class: maelstrom.workload.or_set$checker\n at clojure.core$_cache_protocol_fn.invokeStatic (core_deftype.clj:583)\n    clojure.core$_cache_protocol_fn.invoke (core_deftype.clj:575)\n    jepsen.checker$fn__8761$G__8756__8772.invoke (checker.clj:52)\n    jepsen.checker$check_safe.invokeStatic (checker.clj:81)\n    jepsen.checker$check_safe.invoke (checker.clj:74)\n    jepsen.checker$compose$reify__8787$fn__8789.invoke (checker.clj:97)\n    clojure.core$pmap$fn__8447$fn__8448.invoke (core.clj:7022)\n    clojure.core$binding_conveyor_fn$fn__5739.invoke (core.clj:2030)\n    clojure.lang.AFn.call (AFn.java:18)\n    java.util.concurrent.FutureTask.run (FutureTask.java:264)\n    java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1136)\n    java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:635)\n    java.lang.Thread.run (Thread.java:833)\n"},
+ :valid? false}

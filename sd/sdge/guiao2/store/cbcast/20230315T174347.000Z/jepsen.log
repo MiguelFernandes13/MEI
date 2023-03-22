@@ -1,0 +1,179 @@
+2023-03-15 17:43:47,504{GMT}	INFO	[jepsen test runner] jepsen.core: Command line:
+lein run test -w cbcast --bin causal-broadcast.py --time-limit 5 --node-count 3 --concurrency 1n
+2023-03-15 17:43:47,597{GMT}	INFO	[jepsen test runner] jepsen.core: Running test:
+{:args []
+ :remote
+ #jepsen.control.retry.Remote{:remote #jepsen.control.scp.Remote{:cmd-remote #jepsen.control.clj_ssh.Remote{:concurrency-limit 8,
+                                                                                                            :conn-spec nil,
+                                                                                                            :session nil,
+                                                                                                            :semaphore nil},
+                                                                 :conn-spec nil},
+                              :conn nil}
+ :log-net-send false
+ :node-count 3
+ :max-txn-length 4
+ :concurrency 3
+ :db
+ #object[maelstrom.db$db$reify__16817
+         "0x7334dcbe"
+         "maelstrom.db$db$reify__16817@7334dcbe"]
+ :max-writes-per-key 16
+ :leave-db-running? false
+ :name "cbcast"
+ :logging-json? false
+ :start-time
+ #object[org.joda.time.DateTime "0x1d1a706" "2023-03-15T17:43:47.000Z"]
+ :nemesis-interval 10
+ :net
+ #object[maelstrom.net$jepsen_net$reify__15673
+         "0x5e136445"
+         "maelstrom.net$jepsen_net$reify__15673@5e136445"]
+ :client
+ #object[maelstrom.workload.cbcast$client$reify__18677
+         "0x3c9e82a6"
+         "maelstrom.workload.cbcast$client$reify__18677@3c9e82a6"]
+ :barrier
+ #object[java.util.concurrent.CyclicBarrier
+         "0x4235e01b"
+         "java.util.concurrent.CyclicBarrier@4235e01b"]
+ :log-stderr false
+ :pure-generators true
+ :ssh {:dummy? true}
+ :rate 5
+ :checker
+ #object[jepsen.checker$compose$reify__8787
+         "0x4ed096cc"
+         "jepsen.checker$compose$reify__8787@4ed096cc"]
+ :argv
+ ("test"
+  "-w"
+  "cbcast"
+  "--bin"
+  "causal-broadcast.py"
+  "--time-limit"
+  "5"
+  "--node-count"
+  "3"
+  "--concurrency"
+  "1n")
+ :nemesis
+ (jepsen.nemesis.ReflCompose
+  {:fm {:start-partition 0,
+        :stop-partition 0,
+        :kill 1,
+        :start 1,
+        :pause 1,
+        :resume 1},
+   :nemeses [#unprintable "jepsen.nemesis.combined$partition_nemesis$reify__17089@b24e21f"
+             #unprintable "jepsen.nemesis.combined$db_nemesis$reify__17070@43e7ca6f"]})
+ :nodes ["n0" "n1" "n2"]
+ :test-count 1
+ :latency {:mean 0, :dist :constant}
+ :bin "causal-broadcast.py"
+ :generator
+ (jepsen.generator.TimeLimit
+  {:limit 5000000000,
+   :cutoff nil,
+   :gen (jepsen.generator.Any
+         {:gens [(jepsen.generator.OnThreads {:f #{:nemesis}, :gen nil})
+                 (jepsen.generator.OnThreads
+                  {:f #object[clojure.core$complement$fn__5654
+                              "0x2c3762c7"
+                              "clojure.core$complement$fn__5654@2c3762c7"],
+                   :gen (jepsen.generator.Stagger
+                         {:dt 400000000,
+                          :next-time nil,
+                          :gen ({:f :cbcast, :value 1}
+                                {:f :cbcast, :value 2}
+                                {:f :cbcast, :value 3}
+                                {:f :cbcast, :value 4}
+                                {:f :cbcast, :value 5}
+                                {:f :cbcast, :value 6}
+                                {:f :cbcast, :value 7}
+                                {:f :cbcast, :value 8}
+                                ...)})})]})})
+ :log-net-recv false
+ :os
+ #object[maelstrom.net$jepsen_os$reify__15676
+         "0x4d992634"
+         "maelstrom.net$jepsen_os$reify__15676@4d992634"]
+ :time-limit 5
+ :workload :cbcast
+ :consistency-models [:strict-serializable]
+ :topology :grid}
+
+2023-03-15 17:43:47,605{GMT}	INFO	[jepsen node n0] maelstrom.net: Starting Maelstrom network
+2023-03-15 17:43:47,606{GMT}	INFO	[jepsen test runner] jepsen.db: Tearing down DB
+2023-03-15 17:43:47,608{GMT}	INFO	[jepsen test runner] jepsen.db: Setting up DB
+2023-03-15 17:43:47,609{GMT}	INFO	[jepsen node n2] maelstrom.db: Setting up n2
+2023-03-15 17:43:47,609{GMT}	INFO	[jepsen node n1] maelstrom.db: Setting up n1
+2023-03-15 17:43:47,610{GMT}	INFO	[jepsen node n2] maelstrom.process: launching causal-broadcast.py []
+2023-03-15 17:43:47,610{GMT}	INFO	[jepsen node n1] maelstrom.process: launching causal-broadcast.py []
+2023-03-15 17:43:47,611{GMT}	INFO	[jepsen node n0] maelstrom.service: Starting services: (lin-kv lin-tso lww-kv seq-kv)
+2023-03-15 17:43:47,614{GMT}	INFO	[jepsen node n0] maelstrom.db: Setting up n0
+2023-03-15 17:43:47,616{GMT}	INFO	[jepsen node n0] maelstrom.process: launching causal-broadcast.py []
+2023-03-15 17:43:47,667{GMT}	INFO	[jepsen test runner] jepsen.core: Relative time begins now
+2023-03-15 17:43:47,679{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:invoke	:cbcast	1
+2023-03-15 17:43:47,905{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:invoke	:cbcast	2
+2023-03-15 17:43:48,300{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:invoke	:cbcast	3
+2023-03-15 17:43:52,681{GMT}	INFO	[jepsen worker 2] jepsen.util: 2	:info	:cbcast	1	:net-timeout
+2023-03-15 17:43:52,906{GMT}	INFO	[jepsen worker 0] jepsen.util: 0	:info	:cbcast	2	:net-timeout
+2023-03-15 17:43:53,301{GMT}	INFO	[jepsen worker 1] jepsen.util: 1	:info	:cbcast	3	:net-timeout
+2023-03-15 17:43:53,306{GMT}	INFO	[jepsen node n0] maelstrom.db: Tearing down n0
+2023-03-15 17:43:53,306{GMT}	INFO	[jepsen node n1] maelstrom.db: Tearing down n1
+2023-03-15 17:43:53,306{GMT}	INFO	[jepsen node n2] maelstrom.db: Tearing down n2
+2023-03-15 17:43:54,620{GMT}	INFO	[jepsen node n0] maelstrom.net: Shutting down Maelstrom network
+2023-03-15 17:43:54,621{GMT}	INFO	[jepsen test runner] jepsen.core: Run complete, writing
+2023-03-15 17:43:54,627{GMT}	INFO	[jepsen test runner] jepsen.core: Analyzing...
+2023-03-15 17:43:54,630{GMT}	WARN	[clojure-agent-send-off-pool-7] jepsen.checker: Error while checking history:
+java.lang.IllegalArgumentException: No matching clause: :info
+	at maelstrom.workload.cbcast$build_dependencies$fn__18687.invoke(cbcast.clj:46)
+	at clojure.lang.PersistentVector.reduce(PersistentVector.java:343)
+	at clojure.core$reduce.invokeStatic(core.clj:6827)
+	at clojure.core$reduce.invoke(core.clj:6810)
+	at maelstrom.workload.cbcast$build_dependencies.invokeStatic(cbcast.clj:43)
+	at maelstrom.workload.cbcast$build_dependencies.invoke(cbcast.clj:41)
+	at maelstrom.workload.cbcast$checker$reify__18711.check(cbcast.clj:91)
+	at jepsen.checker$check_safe.invokeStatic(checker.clj:81)
+	at jepsen.checker$check_safe.invoke(checker.clj:74)
+	at jepsen.checker$compose$reify__8787$fn__8789.invoke(checker.clj:97)
+	at clojure.core$pmap$fn__8447$fn__8448.invoke(core.clj:7022)
+	at clojure.core$binding_conveyor_fn$fn__5739.invoke(core.clj:2030)
+	at clojure.lang.AFn.call(AFn.java:18)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-03-15 17:43:54,758{GMT}	INFO	[jepsen test runner] jepsen.core: Analysis complete
+2023-03-15 17:43:54,766{GMT}	INFO	[jepsen results] jepsen.store: Wrote /home/miguel/uni/4ano/sd/sdge/guiao2/store/cbcast/20230315T174347.000Z/results.edn
+2023-03-15 17:43:54,774{GMT}	INFO	[jepsen test runner] jepsen.core: {:perf {:latency-graph {:valid? true},
+        :rate-graph {:valid? true},
+        :valid? true},
+ :timeline {:valid? true},
+ :exceptions {:valid? true},
+ :stats {:valid? false,
+         :count 3,
+         :ok-count 0,
+         :fail-count 0,
+         :info-count 3,
+         :by-f {:cbcast {:valid? false,
+                         :count 3,
+                         :ok-count 0,
+                         :fail-count 0,
+                         :info-count 3}}},
+ :net {:all {:send-count 9,
+             :recv-count 9,
+             :msg-count 9,
+             :msgs-per-op 3.0},
+       :clients {:send-count 9, :recv-count 9, :msg-count 9},
+       :servers {:send-count 0,
+                 :recv-count 0,
+                 :msg-count 0,
+                 :msgs-per-op 0.0},
+       :valid? true},
+ :workload {:valid? :unknown,
+            :error "java.lang.IllegalArgumentException: No matching clause: :info\n at maelstrom.workload.cbcast$build_dependencies$fn__18687.invoke (cbcast.clj:46)\n    clojure.lang.PersistentVector.reduce (PersistentVector.java:343)\n    clojure.core$reduce.invokeStatic (core.clj:6827)\n    clojure.core$reduce.invoke (core.clj:6810)\n    maelstrom.workload.cbcast$build_dependencies.invokeStatic (cbcast.clj:43)\n    maelstrom.workload.cbcast$build_dependencies.invoke (cbcast.clj:41)\n    maelstrom.workload.cbcast$checker$reify__18711.check (cbcast.clj:91)\n    jepsen.checker$check_safe.invokeStatic (checker.clj:81)\n    jepsen.checker$check_safe.invoke (checker.clj:74)\n    jepsen.checker$compose$reify__8787$fn__8789.invoke (checker.clj:97)\n    clojure.core$pmap$fn__8447$fn__8448.invoke (core.clj:7022)\n    clojure.core$binding_conveyor_fn$fn__5739.invoke (core.clj:2030)\n    clojure.lang.AFn.call (AFn.java:18)\n    java.util.concurrent.FutureTask.run (FutureTask.java:264)\n    java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1136)\n    java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:635)\n    java.lang.Thread.run (Thread.java:833)\n"},
+ :valid? false}
+
+
+Analysis invalid! (ﾉಥ益ಥ）ﾉ ┻━┻

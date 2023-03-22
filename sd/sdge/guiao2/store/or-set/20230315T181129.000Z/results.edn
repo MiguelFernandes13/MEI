@@ -1,0 +1,124 @@
+{:perf {:latency-graph {:valid? true},
+        :rate-graph {:valid? true},
+        :valid? true},
+ :timeline {:valid? true},
+ :exceptions {:valid? true,
+              :exceptions ({:count 11,
+                            :class clojure.lang.ExceptionInfo,
+                            :example {:f :read,
+                                      :time 258116600,
+                                      :process 1,
+                                      :type :info,
+                                      :exception {:via [{:type clojure.lang.ExceptionInfo,
+                                                         :message "Malformed RPC response. Maelstrom sent node n1 the following request:\n\n{:type \"read\", :msg_id 1}\n\nAnd expected a response of the form:\n\n{:type (eq \"read_ok\"), :value [Any], {:k :msg_id} Int, :in_reply_to Int}\n\n... but instead received\n\n{:msg_id 2, :in_reply_to 1, :type \"read_ok\", :values {\"0\" [[\"n0\" 1]]}}\n\nThis is malformed because:\n\n{:value missing-required-key, :values disallowed-key}\n\nSee doc/protocol.md for more guidance.",
+                                                         :data {:type :malformed-rpc-response,
+                                                                :body {:msg_id 2,
+                                                                       :in_reply_to 1,
+                                                                       :type "read_ok",
+                                                                       :values {"0" [["n0"
+                                                                                      1]]}}},
+                                                         :at [slingshot.support$stack_trace
+                                                              invoke
+                                                              "support.clj"
+                                                              201]}],
+                                                  :trace [[slingshot.support$stack_trace
+                                                           invoke
+                                                           "support.clj"
+                                                           201]
+                                                          [maelstrom.client$check_body
+                                                           invokeStatic
+                                                           "client.clj"
+                                                           249]
+                                                          [maelstrom.client$check_body
+                                                           invoke
+                                                           "client.clj"
+                                                           242]
+                                                          [maelstrom.workload.or_set$fn__18749$read__18750
+                                                           invoke
+                                                           "or_set.clj"
+                                                           27]
+                                                          [maelstrom.workload.or_set$fn__18749$read__18750
+                                                           invoke
+                                                           "or_set.clj"
+                                                           27]
+                                                          [maelstrom.workload.or_set$client$reify__18760
+                                                           invoke_BANG_
+                                                           "or_set.clj"
+                                                           55]
+                                                          [jepsen.client.Validate
+                                                           invoke_BANG_
+                                                           "client.clj"
+                                                           83]
+                                                          [jepsen.generator.interpreter.ClientWorker
+                                                           invoke_BANG_
+                                                           "interpreter.clj"
+                                                           62]
+                                                          [jepsen.generator.interpreter$spawn_worker$fn__9720$fn__9721
+                                                           invoke
+                                                           "interpreter.clj"
+                                                           137]
+                                                          [jepsen.generator.interpreter$spawn_worker$fn__9720
+                                                           invoke
+                                                           "interpreter.clj"
+                                                           120]
+                                                          [clojure.core$binding_conveyor_fn$fn__5739
+                                                           invoke
+                                                           "core.clj"
+                                                           2030]
+                                                          [clojure.lang.AFn
+                                                           call
+                                                           "AFn.java"
+                                                           18]
+                                                          [java.util.concurrent.FutureTask
+                                                           run
+                                                           "FutureTask.java"
+                                                           264]
+                                                          [java.util.concurrent.ThreadPoolExecutor
+                                                           runWorker
+                                                           "ThreadPoolExecutor.java"
+                                                           1136]
+                                                          [java.util.concurrent.ThreadPoolExecutor$Worker
+                                                           run
+                                                           "ThreadPoolExecutor.java"
+                                                           635]
+                                                          [java.lang.Thread
+                                                           run
+                                                           "Thread.java"
+                                                           833]],
+                                                  :cause "Malformed RPC response. Maelstrom sent node n1 the following request:\n\n{:type \"read\", :msg_id 1}\n\nAnd expected a response of the form:\n\n{:type (eq \"read_ok\"), :value [Any], {:k :msg_id} Int, :in_reply_to Int}\n\n... but instead received\n\n{:msg_id 2, :in_reply_to 1, :type \"read_ok\", :values {\"0\" [[\"n0\" 1]]}}\n\nThis is malformed because:\n\n{:value missing-required-key, :values disallowed-key}\n\nSee doc/protocol.md for more guidance.",
+                                                  :data {:type :malformed-rpc-response,
+                                                         :body {:msg_id 2,
+                                                                :in_reply_to 1,
+                                                                :type "read_ok",
+                                                                :values {"0" [["n0"
+                                                                               1]]}}}},
+                                      :error "indeterminate: Malformed RPC response. Maelstrom sent node n1 the following request:\n\n{:type \"read\", :msg_id 1}\n\nAnd expected a response of the form:\n\n{:type (eq \"read_ok\"), :value [Any], {:k :msg_id} Int, :in_reply_to Int}\n\n... but instead received\n\n{:msg_id 2, :in_reply_to 1, :type \"read_ok\", :values {\"0\" [[\"n0\" 1]]}}\n\nThis is malformed because:\n\n{:value missing-required-key, :values disallowed-key}\n\nSee doc/protocol.md for more guidance.",
+                                      :index 2}})},
+ :stats {:valid? false,
+         :count 11,
+         :ok-count 0,
+         :fail-count 0,
+         :info-count 11,
+         :by-f {:add {:valid? false,
+                      :count 3,
+                      :ok-count 0,
+                      :fail-count 0,
+                      :info-count 3},
+                :read {:valid? false,
+                       :count 8,
+                       :ok-count 0,
+                       :fail-count 0,
+                       :info-count 8}}},
+ :net {:all {:send-count 31,
+             :recv-count 31,
+             :msg-count 31,
+             :msgs-per-op 2.8181818},
+       :clients {:send-count 25, :recv-count 25, :msg-count 25},
+       :servers {:send-count 6,
+                 :recv-count 6,
+                 :msg-count 6,
+                 :msgs-per-op 0.54545456},
+       :valid? true},
+ :workload {:valid? :unknown,
+            :error "java.lang.IllegalArgumentException: No implementation of method: :check of protocol: #'jepsen.checker/Checker found for class: maelstrom.workload.or_set$checker\n at clojure.core$_cache_protocol_fn.invokeStatic (core_deftype.clj:583)\n    clojure.core$_cache_protocol_fn.invoke (core_deftype.clj:575)\n    jepsen.checker$fn__8761$G__8756__8772.invoke (checker.clj:52)\n    jepsen.checker$check_safe.invokeStatic (checker.clj:81)\n    jepsen.checker$check_safe.invoke (checker.clj:74)\n    jepsen.checker$compose$reify__8787$fn__8789.invoke (checker.clj:97)\n    clojure.core$pmap$fn__8447$fn__8448.invoke (core.clj:7022)\n    clojure.core$binding_conveyor_fn$fn__5739.invoke (core.clj:2030)\n    clojure.lang.AFn.call (AFn.java:18)\n    java.util.concurrent.FutureTask.run (FutureTask.java:264)\n    java.util.concurrent.ThreadPoolExecutor.runWorker (ThreadPoolExecutor.java:1136)\n    java.util.concurrent.ThreadPoolExecutor$Worker.run (ThreadPoolExecutor.java:635)\n    java.lang.Thread.run (Thread.java:833)\n"},
+ :valid? false}

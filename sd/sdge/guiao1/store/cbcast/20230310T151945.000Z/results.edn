@@ -1,0 +1,44 @@
+{:perf {:latency-graph {:valid? true},
+        :rate-graph {:valid? true},
+        :valid? true},
+ :timeline {:valid? true},
+ :exceptions {:valid? true},
+ :stats {:valid? true,
+         :count 24,
+         :ok-count 24,
+         :fail-count 0,
+         :info-count 0,
+         :by-f {:cbcast {:valid? true,
+                         :count 24,
+                         :ok-count 24,
+                         :fail-count 0,
+                         :info-count 0}}},
+ :net {:all {:send-count 102,
+             :recv-count 97,
+             :msg-count 102,
+             :msgs-per-op 4.25},
+       :clients {:send-count 54, :recv-count 54, :msg-count 54},
+       :servers {:send-count 48,
+                 :recv-count 43,
+                 :msg-count 48,
+                 :msgs-per-op 2.0},
+       :valid? true},
+ :workload {:valid? false,
+            :errors ["missing dependencies [1] when delivering message 2 to process 1"
+                     "missing dependencies [1] when delivering message 2 to process 2"
+                     "missing dependencies [4] when delivering message 5 to process 1"
+                     "missing dependencies [3] when delivering message 6 to process 2"
+                     "missing dependencies [4] when delivering message 5 to process 2"
+                     "missing dependencies [8] when delivering message 9 to process 2"
+                     "missing dependencies [3] when delivering message 6 to process 0"
+                     "missing dependencies [8] when delivering message 9 to process 0"
+                     "missing dependencies [7] when delivering message 10 to process 0"
+                     "missing dependencies [11] when delivering message 12 to process 0"
+                     "missing dependencies [7] when delivering message 10 to process 1"
+                     "missing dependencies [11] when delivering message 12 to process 1"
+                     "missing dependencies [14] when delivering message 16 to process 1"
+                     "missing dependencies [17] when delivering message 18 to process 1"
+                     "missing dependencies [13] when delivering message 15 to process 2"
+                     "missing dependencies [14] when delivering message 16 to process 2"
+                     "missing dependencies [19] when delivering message 20 to process 2"]},
+ :valid? false}
