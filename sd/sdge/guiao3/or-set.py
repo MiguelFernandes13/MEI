@@ -54,14 +54,16 @@ for msg in receiveAll():
             reply(msg, type='init_ok')
         case 'add':
             #addi(e,(m, c)) = (m{e → {(i, c[i] + 1)}}, c{i → c[i] + 1})
-            c += 1
+            vv[node_id] += 1
             if msg.body.element not in m:
                 m[msg.body.element] = []
             if node_id not in m[msg.body.element]:
-                m[msg.body.element].append({node_id: c})
+                m[msg.body.element].append(vv.copy())
             else:
                 m[msg.body.element][node_id] = c
-
+            random = random.randint(0, 5)
+            if random == 0:
+                broadcast(type='join', dotmap = m)
         case 'remove':
             if msg.body.element in m:
                 m.pop(msg.body.element)
@@ -69,7 +71,13 @@ for msg in receiveAll():
         case 'read':
             reply(msg, type='read_ok', value = list(m.keys()))
             
-        case 'update':
+        case 'join':
+            for element in msg.body.dotmap:
+                for i in node_ids:
+                    vv[i] = max(vv[i], msg.body.dotmap[element][i])
+            
+
+                
             
 
 
