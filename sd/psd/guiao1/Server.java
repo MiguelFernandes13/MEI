@@ -47,13 +47,11 @@ public class Server {
                         List<SelectionKey> noSource = new ArrayList<>(clients);
                         noSource.remove(key);
                         for (SelectionKey k : noSource) {
-                            //a.insert(buf.duplicate());
-                            //k.attach(a);
                             k.attach(buf.duplicate());
-                            k.interestOps(SelectionKey.OP_WRITE);
+                            //keep the interest and add write
+                            k.interestOpsOr(SelectionKey.OP_WRITE);
                         }
                     }
-
                 }
                 else if (key.isWritable()) {
                     ByteBuffer buf = (ByteBuffer) key.attachment();
@@ -62,9 +60,6 @@ public class Server {
                     s.write(buf);
                     key.interestOps(SelectionKey.OP_READ);
                 }
-
-
-
                 i.remove();
             }
         }
