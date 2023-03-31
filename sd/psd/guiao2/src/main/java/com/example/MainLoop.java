@@ -1,5 +1,6 @@
 package com.example;
 
+import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
@@ -15,6 +16,7 @@ import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.ObservableEmitter;
 
 public class MainLoop {
+    Selector sel;
 
     public MainLoop() {
     }
@@ -28,24 +30,23 @@ public class MainLoop {
 
     public Observable<SocketChannel> accept(SocketChannel s) {
         return Observable.create(sub -> {
-        s.configureBlocking(false);
-        s.register(sel, SelectionKey.OP_ACCEPT, sub);
+                s.configureBlocking(false);
+                s.register(sel, SelectionKey.OP_ACCEPT, sub);
         });
     }
     
-    public void readAndSubscribe(SocketChannel s, BufferCallBack cb) {
+    public void readAndSubscribe(SocketChannel s, BufferCallBack cb) throws IOException {
         s.configureBlocking(false);
         s.register(sel, SelectionKey.OP_READ, cb);   
     }
 
-    public void run() {
-        Selector sel = SelectorProvider.provider().openSelector();
+    public void run() throws IOException {
+        sel = SelectorProvider.provider().openSelector();
         ServerSocketChannel ss = ServerSocketChannel.open();
         ss.bind(new InetSocketAddress(12345));
         ss.configureBlocking(false);
         ss.register(sel, SelectionKey.OP_ACCEPT);
 
-        List<SelectionKey> clients = new ArrayList<>();
         while (true) {
             sel.select();
             for (Iterator<SelectionKey> i = sel.selectedKeys().iterator(); i.hasNext();) {
@@ -57,14 +58,27 @@ public class MainLoop {
                     sub.onNext(s);
                 }
                 else if (key.isReadable()) {
-                    ObservableEmitter<SocketChannel> sub = (ObservableEmitter<SocketChannel>) key.attachment();
+                    //BufferCallBack cb = (BufferCallBack) key.attachment();
+                    ObservableEmitter<ByteBuffer> sub = (ObservableEmitter<ByteBuffer>) key.attachment();
                     SocketChannel s = (SocketChannel) key.channel();
-                    
-                    sub.onNext(s);
+                    ByteBuffer buf = ByteBuffer.allocate(100);
+                    try{
 
+                        int r = s.read(buf);
+                        if (r > 0){
+                            buf.flip();
+                            sub.onNext(buf);
+                        }
+                        else{
+                            sub.onComplete();
+                            s.close();
+                        }               
+                    } catch (IOException e) {
+                        sub.onError(e);
+                        s.close();
+                    }
                 }
             }
         }
-
-
+    }
 }

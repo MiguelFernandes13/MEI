@@ -4,20 +4,24 @@ import java.nio.ByteBuffer;
 
 public class LineSplitLayer implements BufferCallBack {
     private BufferCallBack cb;
+
+    
+    public LineSplitLayer() {
+    }
+
     public void subscribe(BufferCallBack cb) {
         this.cb = cb;
     }
 
     @Override
     public void onComplete() {
-        // TODO Auto-generated method stub
+        cb.onComplete();
         
     }
 
     @Override
     public void onError(Throwable t) {
-        // TODO Auto-generated method stub
-        
+        cb.onError(t);        
     }
 
     @Override
