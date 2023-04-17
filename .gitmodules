@@ -1,0 +1,3 @@
+[submodule "ASCN"]
+	path = ASCN
+	url = git@github.com:MiguelFernandes13/ASCN.git

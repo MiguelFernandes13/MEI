@@ -1,0 +1,94 @@
+== Parsed Logical Plan ==                                                       
+Project [nconst#20, primaryName#31, category#21, characters#23]
++- Filter (tconst#18 = tt3896198)
+   +- Join Inner, (nconst#30 = nconst#20)
+      :- Relation [tconst#18,ordering#19,nconst#20,category#21,job#22,characters#23] parquet
+      +- Relation [nconst#30,primaryName#31,birthYear#32,deathYear#33,primaryProfession#34,knownForTitles#35] parquet
+
+== Analyzed Logical Plan ==
+nconst: string, primaryName: string, category: string, characters: string
+Project [nconst#20, primaryName#31, category#21, characters#23]
++- Filter (tconst#18 = tt3896198)
+   +- Join Inner, (nconst#30 = nconst#20)
+      :- Relation [tconst#18,ordering#19,nconst#20,category#21,job#22,characters#23] parquet
+      +- Relation [nconst#30,primaryName#31,birthYear#32,deathYear#33,primaryProfession#34,knownForTitles#35] parquet
+
+== Optimized Logical Plan ==
+Project [nconst#20, primaryName#31, category#21, characters#23]
++- Join Inner, (nconst#30 = nconst#20)
+   :- Project [nconst#20, category#21, characters#23]
+   :  +- Filter ((isnotnull(tconst#18) AND (tconst#18 = tt3896198)) AND isnotnull(nconst#20))
+   :     +- Relation [tconst#18,ordering#19,nconst#20,category#21,job#22,characters#23] parquet
+   +- Project [nconst#30, primaryName#31]
+      +- Filter isnotnull(nconst#30)
+         +- Relation [nconst#30,primaryName#31,birthYear#32,deathYear#33,primaryProfession#34,knownForTitles#35] parquet
+
+== Physical Plan ==
+AdaptiveSparkPlan isFinalPlan=false
++- Project [nconst#20, primaryName#31, category#21, characters#23]
+   +- BroadcastHashJoin [nconst#20], [nconst#30], Inner, BuildRight, false
+      :- Project [nconst#20, category#21, characters#23]
+      :  +- Filter ((isnotnull(tconst#18) AND (tconst#18 = tt3896198)) AND isnotnull(nconst#20))
+      :     +- FileScan parquet [tconst#18,nconst#20,category#21,characters#23] Batched: true, DataFilters: [isnotnull(tconst#18), (tconst#18 = tt3896198), isnotnull(nconst#20)], Format: Parquet, Location: InMemoryFileIndex(1 paths)[gs://abd_example/title.principals.parquet], PartitionFilters: [], PushedFilters: [IsNotNull(tconst), EqualTo(tconst,tt3896198), IsNotNull(nconst)], ReadSchema: struct<tconst:string,nconst:string,category:string,characters:string>
+      +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=26]
+         +- Filter isnotnull(nconst#30)
+            +- FileScan parquet [nconst#30,primaryName#31] Batched: true, DataFilters: [isnotnull(nconst#30)], Format: Parquet, Location: InMemoryFileIndex(1 paths)[gs://abd_example/name.basics.parquet], PartitionFilters: [], PushedFilters: [IsNotNull(nconst)], ReadSchema: struct<nconst:string,primaryName:string>
+
+__________________________________________________________________________________-
+2 query
+________________________________________________________________________________
+== Parsed Logical Plan ==
+GlobalLimit 10
++- LocalLimit 10
+   +- Sort [count#109L DESC NULLS LAST], true
+      +- Aggregate [nconst#30, primaryName#31], [nconst#30, primaryName#31, count(1) AS count#109L]
+         +- Join Inner, (nconst#30 = nconst#20)
+            :- Relation [tconst#18,ordering#19,nconst#20,category#21,job#22,characters#23] parquet
+            +- Relation [nconst#30,primaryName#31,birthYear#32,deathYear#33,primaryProfession#34,knownForTitles#35] parquet
+
+== Analyzed Logical Plan ==
+nconst: string, primaryName: string, count: bigint
+GlobalLimit 10
++- LocalLimit 10
+   +- Sort [count#109L DESC NULLS LAST], true
+      +- Aggregate [nconst#30, primaryName#31], [nconst#30, primaryName#31, count(1) AS count#109L]
+         +- Join Inner, (nconst#30 = nconst#20)
+            :- Relation [tconst#18,ordering#19,nconst#20,category#21,job#22,characters#23] parquet
+            +- Relation [nconst#30,primaryName#31,birthYear#32,deathYear#33,primaryProfession#34,knownForTitles#35] parquet
+
+== Optimized Logical Plan ==
+GlobalLimit 10
++- LocalLimit 10
+   +- Sort [count#109L DESC NULLS LAST], true
+      +- Aggregate [nconst#30, primaryName#31], [nconst#30, primaryName#31, count(1) AS count#109L]
+         +- Project [nconst#30, primaryName#31]
+            +- Join Inner, (nconst#30 = nconst#20)
+               :- Project [nconst#20]
+               :  +- Filter isnotnull(nconst#20)
+               :     +- Relation [tconst#18,ordering#19,nconst#20,category#21,job#22,characters#23] parquet
+               +- Project [nconst#30, primaryName#31]
+                  +- Filter isnotnull(nconst#30)
+                     +- Relation [nconst#30,primaryName#31,birthYear#32,deathYear#33,primaryProfession#34,knownForTitles#35] parquet
+
+== Physical Plan ==
+AdaptiveSparkPlan isFinalPlan=false
++- TakeOrderedAndProject(limit=10, orderBy=[count#109L DESC NULLS LAST], output=[nconst#30,primaryName#31,count#109L])
+   +- HashAggregate(keys=[nconst#30, primaryName#31], functions=[count(1)], output=[nconst#30, primaryName#31, count#109L])
+      +- Exchange hashpartitioning(nconst#30, primaryName#31, 200), ENSURE_REQUIREMENTS, [plan_id=73]
+         +- HashAggregate(keys=[nconst#30, primaryName#31], functions=[partial_count(1)], output=[nconst#30, primaryName#31, count#114L])
+            +- Project [nconst#30, primaryName#31]
+               +- BroadcastHashJoin [nconst#20], [nconst#30], Inner, BuildLeft, false
+                  :- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=68]
+                  :  +- Filter isnotnull(nconst#20)
+                  :     +- FileScan parquet [nconst#20] Batched: true, DataFilters: [isnotnull(nconst#20)], Format: Parquet, Location: InMemoryFileIndex(1 paths)[gs://abd_example/title.principals.parquet], PartitionFilters: [], PushedFilters: [IsNotNull(nconst)], ReadSchema: struct<nconst:string>
+                  +- Filter isnotnull(nconst#30)
+                     +- FileScan parquet [nconst#30,primaryName#31] Batched: true, DataFilters: [isnotnull(nconst#30)], Format: Parquet, Location: InMemoryFileIndex(1 paths)[gs://abd_example/name.basics.parquet], PartitionFilters: [], PushedFilters: [IsNotNull(nconst)], ReadSchema: struct<nconst:string,primaryName:string>
+
+
+
+
+P: Using the explain(mode="extended") operator in the first query, compare the Analyzed Logical
+Plan with the Optimized Logical Plan. What is the main difference between the two? Why did the optimizer
+decided to change the initial plan?
+R: Ambos fizeram a projeção em primeiro lugar, o plano lógico faz primeiro a filtragem e depois
+o join, enquanto o plano otimizado faz primeiro o join e depois a filtragem. 
