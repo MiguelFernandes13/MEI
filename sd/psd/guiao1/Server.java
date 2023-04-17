@@ -45,7 +45,6 @@ public class Server {
                     } else {
                         buf.flip();
                         List<SelectionKey> noSource = new ArrayList<>(clients);
-                        //Clients see their own messages
                         noSource.remove(key);
                         for (SelectionKey k : noSource) {
                             k.attach(buf.duplicate());

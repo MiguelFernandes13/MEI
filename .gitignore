@@ -8,5 +8,3 @@
 *.jar
 **/.ipynb_checkpoints/
 1sem/DAA/
-**/.idea/
-**/.vscode/

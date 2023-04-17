@@ -1,13 +1,9 @@
 package com.example;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Platform {
@@ -18,8 +14,6 @@ public class Platform {
     private int year;
     private String description;
     private String manufacturer;
-    @OneToMany
-    private List<Form> formats;
     
     
     public Platform() {
