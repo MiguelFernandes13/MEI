@@ -66,13 +66,16 @@ public class Mainloop {
                     var sub = (ObservableEmitter<SocketChannel>) key.attachment();
                 }
                 if (key.isWritable()) {
+                    SocketChannel s = (SocketChannel) key.channel();
+                    Flowable<ByteBuffer> flow = (Flowable<ByteBuffer>) key.attachment();
                     //there is a pending write
-                    if (key.attachment() instanceof Flowable) {
-                        Flowable<ByteBuffer> flow = (Flowable<ByteBuffer>) key.attachment();
-                        write(flow, (SocketChannel) key.channel());
-                    }else{
-                        flow.request(1);
+                    try{
+                        ByteBuffer bb = flow.blockingFirst();
+                        s.write(bb);
+                    }catch(Exception e){
                         key.interestOpsAnd(~SelectionKey.OP_WRITE);
+                        //refill credits
+                        
                     }
                 }
                 if (key.isReadable()) {
@@ -110,7 +113,7 @@ public class Mainloop {
         flow.subscribe(new DefaultSubscriber<ByteBuffer>(){
             public void onStart() {
                 try {
-                    SelectionKey key = s.register(sel, SelectionKey.OP_WRITE);
+                    s.register(sel, SelectionKey.OP_WRITE);
                 } catch (ClosedChannelException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();

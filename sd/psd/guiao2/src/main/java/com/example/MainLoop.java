@@ -19,6 +19,11 @@ public class MainLoop {
     Selector sel;
 
     public MainLoop() {
+        try {
+            sel = SelectorProvider.provider().openSelector();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public Observable<ByteBuffer> read(SocketChannel s) {
@@ -28,7 +33,7 @@ public class MainLoop {
         });
     }
 
-    public Observable<SocketChannel> accept(SocketChannel s) {
+    public Observable<SocketChannel> accept(ServerSocketChannel s) throws IOException {
         return Observable.create(sub -> {
                 s.configureBlocking(false);
                 s.register(sel, SelectionKey.OP_ACCEPT, sub);
@@ -41,7 +46,6 @@ public class MainLoop {
     }
 
     public void run() throws IOException {
-        sel = SelectorProvider.provider().openSelector();
         ServerSocketChannel ss = ServerSocketChannel.open();
         ss.bind(new InetSocketAddress(12345));
         ss.configureBlocking(false);
@@ -54,8 +58,12 @@ public class MainLoop {
                 // i/o
                 if (key.isAcceptable()) {
                     SocketChannel s = ss.accept();
-                    ObservableEmitter<SocketChannel> sub = (ObservableEmitter<SocketChannel>) key.attachment();
+                    ObservableEmitter<SocketChannel> sub = (ObservableEmitter<SocketChannel>) Observable.create(sub -> {
+                        s.configureBlocking(false);
+                        s.register(sel, SelectionKey.OP_READ, sub);
+                    });
                     sub.onNext(s);
+                    
                 }
                 else if (key.isReadable()) {
                     //BufferCallBack cb = (BufferCallBack) key.attachment();
@@ -67,6 +75,7 @@ public class MainLoop {
                         int r = s.read(buf);
                         if (r > 0){
                             buf.flip();
+                            System.out.println("received " + buf.remaining());
                             sub.onNext(buf);
                         }
                         else{
